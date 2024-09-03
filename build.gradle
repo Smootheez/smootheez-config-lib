@@ -1,0 +1,70 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'maven-publish'
+}
+
+group = project.maven_group
+version = project.mod_version
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven {url "https://maven.terraformersmc.com/releases/"}
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources{
+    inputs.property "version", project.version
+    filteringCharset "UTF-8"
+    filesMatching("fabric.mod.json"){
+        expand project.properties
+    }
+}
+
+def targetJavaVersion = project.java_version
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    if (targetJavaVersion >= (10 as String) || JavaVersion.current().isJava10Compatible()) {
+        it.options.release.set(targetJavaVersion as Integer)
+    }
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mod(MavenPublication) {
+            groupId = maven_group
+            artifactId = archives_base_name
+            version = mod_version
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url 'file://D:/Documents/Minecraft Java Mod Dev/my-local-repository'
+        }
+    }
+}
