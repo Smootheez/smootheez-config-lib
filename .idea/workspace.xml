@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df9fddcc-4a92-486c-a115-dedf2dfc7ef4" name="Changes" comment="Second Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/registry/ConfigRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/registry/ConfigRegister.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="b31d71c24c76e8caa89221f0cefdd925ca32af53" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -101,6 +106,27 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />

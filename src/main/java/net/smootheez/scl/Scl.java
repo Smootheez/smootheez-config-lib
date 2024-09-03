@@ -8,7 +8,6 @@ import net.smootheez.scl.registry.ConfigRegister;
 public class Scl implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        var exampleConfig = new ExampleConfig();
-        ConfigRegister.getInstance().register(exampleConfig);
+        ConfigRegister.getInstance().register(new ExampleConfig());
     }
 }

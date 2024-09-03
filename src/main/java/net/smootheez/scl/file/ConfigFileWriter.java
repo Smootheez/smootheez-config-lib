@@ -40,8 +40,10 @@ public class ConfigFileWriter {
     }
 
     private void initializeAdapters() {
+        System.out.println("Initializing adapters");
         for (Field field : configProvider.getClass().getDeclaredFields()) {
             if (field.getType() == ConfigOption.class) {
+                System.out.println("Found config option: " + field.getName());
                 field.setAccessible(true);
                 try {
                     ConfigOption<?> option = (ConfigOption<?>) field.get(configProvider);
@@ -90,7 +92,6 @@ public class ConfigFileWriter {
     }
 
     private void fromJson(JsonObject json) {
-        // Load uncategorized options
         for (Map.Entry<String, ConfigOptionAdapter<?>> entry : uncategorizedAdapters.entrySet()) {
             String key = entry.getKey();
             ConfigOptionAdapter<?> adapter = entry.getValue();
@@ -100,7 +101,6 @@ public class ConfigFileWriter {
             }
         }
 
-        // Load categorized options
         for (Map.Entry<String, JsonElement> categoryEntry : json.entrySet()) {
             String category = categoryEntry.getKey();
             if (categoryAdapters.containsKey(category)) {
@@ -121,14 +121,12 @@ public class ConfigFileWriter {
     private JsonObject toJson() {
         JsonObject json = new JsonObject();
 
-        // Add uncategorized options
         for (Map.Entry<String, ConfigOptionAdapter<?>> entry : uncategorizedAdapters.entrySet()) {
             String key = entry.getKey();
             ConfigOptionAdapter<?> adapter = entry.getValue();
             json.add(key, adapter.toJson());
         }
 
-        // Add categorized options
         for (Map.Entry<String, Map<String, ConfigOptionAdapter<?>>> categoryEntry : categoryAdapters.entrySet()) {
             String category = categoryEntry.getKey();
             JsonObject categoryObject = new JsonObject();
