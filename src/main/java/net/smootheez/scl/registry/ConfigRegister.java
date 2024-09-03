@@ -1,14 +1,15 @@
 package net.smootheez.scl.registry;
 
 import net.smootheez.scl.api.ConfigFileProvider;
-import net.smootheez.scl.file.ConfigFileBuilder;
+import net.smootheez.scl.file.ConfigFileBuilderOD;
+import net.smootheez.scl.file.ConfigFileWriter;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ConfigRegister {
     private static final ConfigRegister INSTANCE = new ConfigRegister();
-    private final Map<Class<? extends ConfigFileProvider>, ConfigFileBuilder> configWriters;
+    private final Map<Class<? extends ConfigFileProvider>, ConfigFileWriter> configWriters;
 
     private ConfigRegister() {
         this.configWriters = new HashMap<>();
@@ -19,13 +20,13 @@ public class ConfigRegister {
     }
 
     public <T extends ConfigFileProvider> void register(T config) {
-        ConfigFileBuilder writer = new ConfigFileBuilder(config);
+        ConfigFileWriter writer = new ConfigFileWriter(config);
         configWriters.put(config.getClass(), writer);
         writer.loadConfig();
     }
 
     public <T extends ConfigFileProvider> void save(Class<T> configClass) {
-        ConfigFileBuilder writer = configWriters.get(configClass);
+        ConfigFileWriter writer = configWriters.get(configClass);
         if (writer != null) {
             writer.saveConfig();
         } else {
@@ -34,7 +35,7 @@ public class ConfigRegister {
     }
 
     public <T extends ConfigFileProvider> void reload(Class<T> configClass) {
-        ConfigFileBuilder writer = configWriters.get(configClass);
+        ConfigFileWriter writer = configWriters.get(configClass);
         if (writer != null) {
             writer.loadConfig();
         } else {
@@ -43,13 +44,13 @@ public class ConfigRegister {
     }
 
     public void saveAll() {
-        for (ConfigFileBuilder writer : configWriters.values()) {
+        for (ConfigFileWriter writer : configWriters.values()) {
             writer.saveConfig();
         }
     }
 
     public void reloadAll() {
-        for (ConfigFileBuilder writer : configWriters.values()) {
+        for (ConfigFileWriter writer : configWriters.values()) {
             writer.loadConfig();
         }
     }

@@ -19,7 +19,9 @@ public class ExampleScreen extends Screen {
     @Override
     protected void init() {
 
-        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> close()).dimensions(width / 2 - 100, height - 30, 200, 20).build());
+        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button ->
+                close()
+        ).dimensions(width / 2 - 100, height - 30, 200, 20).build());
     }
 
     @Override

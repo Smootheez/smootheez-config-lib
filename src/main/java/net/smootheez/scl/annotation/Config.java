@@ -15,4 +15,10 @@ public @interface Config {
     @interface Category {
         String category();
     }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.FIELD)
+    @interface OptionName {
+        String name();
+    }
 }

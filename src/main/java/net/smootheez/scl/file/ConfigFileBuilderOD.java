@@ -5,9 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.option.SimpleOption;
 import net.smootheez.scl.annotation.Config;
 import net.smootheez.scl.api.ConfigFileProvider;
+import net.smootheez.scl.option.ConfigOption;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,14 +16,14 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public class ConfigFileBuilder {
+public class ConfigFileBuilderOD {
     private final Gson gson;
     private final File configFile;
     private final ConfigFileProvider configProvider;
     private final Map<String, Map<String, ConfigOptionAdapter<?>>> categoryAdapters;
     private final Map<String, ConfigOptionAdapter<?>> uncategorizedAdapters;
 
-    public ConfigFileBuilder(ConfigFileProvider configProvider) {
+    public ConfigFileBuilderOD(ConfigFileProvider configProvider) {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
         this.configProvider = configProvider;
         this.categoryAdapters = new TreeMap<>();
@@ -41,10 +41,10 @@ public class ConfigFileBuilder {
 
     private void initializeAdapters() {
         for (Field field : configProvider.getClass().getDeclaredFields()) {
-            if (field.getType() == SimpleOption.class) {
+            if (field.getType() == ConfigOption.class) {
                 field.setAccessible(true);
                 try {
-                    SimpleOption<?> option = (SimpleOption<?>) field.get(configProvider);
+                    ConfigOption<?> option = (ConfigOption<?>) field.get(configProvider);
                     Config.Category categoryAnnotation = field.getAnnotation(Config.Category.class);
 
                     if (categoryAnnotation != null) {
@@ -62,7 +62,7 @@ public class ConfigFileBuilder {
         }
     }
 
-    private <T> ConfigOptionAdapter<T> createAdapter(SimpleOption<T> option) {
+    private <T> ConfigOptionAdapter<T> createAdapter(ConfigOption<T> option) {
         return new ConfigOptionAdapter<>(option);
     }
 
@@ -142,7 +142,7 @@ public class ConfigFileBuilder {
         return json;
     }
 
-    private record ConfigOptionAdapter<T>(SimpleOption<T> option) {
+    private record ConfigOptionAdapter<T>(ConfigOption<T> option) {
         void fromJson(JsonElement json) {
             option.setValue(option.getSerializer().deserialize(json));
         }
