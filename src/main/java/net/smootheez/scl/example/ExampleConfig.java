@@ -10,6 +10,8 @@ import java.util.List;
 //TODO create the ExampleConfig
 @Config(configName = "exampleConfig")
 public class ExampleConfig implements ConfigFileProvider {
+    private static final ExampleConfig INSTANCE = new ExampleConfig();
+
     @Config.Category(category = ExampleCategory.CATEGORY_ONE)
     private final ConfigOption<Boolean> exampleBoolean = ConfigOption.ofBoolean("exampleBoolean", true);
 
@@ -21,13 +23,17 @@ public class ExampleConfig implements ConfigFileProvider {
 
 
     @Config.Category(category = ExampleCategory.CATEGORY_TWO)
-    private final ConfigOption<Integer> exampleInteger = ConfigOption.ofInteger("exampleInteger", 0);
+    private final ConfigOption<Integer> exampleInteger = ConfigOption.ofInteger("exampleInteger", 0, 100);
 
     @Config.Category(category = ExampleCategory.CATEGORY_THREE)
     private final ConfigOption<List<String>> exampleStringList = ConfigOption.ofStringList("exampleStringList", List.of("exampleString", "exampleString2"));
 
     @Config.Category(category = ExampleCategory.CATEGORY_FOUR)
-    private final ConfigOption<Float> exampleFloat = ConfigOption.ofFloat("exampleFloat", 0.0f);
+    private final ConfigOption<Double> exampleDouble = ConfigOption.ofDouble("exampleDouble", 0.0, 1.0);
+
+    public static ExampleConfig getInstance() {
+        return INSTANCE;
+    }
 
     public ConfigOption<Integer> getExampleInteger() {
         return exampleInteger;
@@ -40,8 +46,8 @@ public class ExampleConfig implements ConfigFileProvider {
         return exampleStringList;
     }
 
-    public ConfigOption<Float> getExampleFloat() {
-        return exampleFloat;
+    public ConfigOption<Double> getExampleDouble() {
+        return exampleDouble;
     }
 
     public ConfigOption<Boolean> getExampleBoolean() {

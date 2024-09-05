@@ -5,7 +5,9 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-
+import net.smootheez.scl.Scl;
+import net.smootheez.scl.gui.ConfigList;
+import net.smootheez.scl.registry.ConfigRegister;
 
 
 public class ExampleScreen extends Screen {
@@ -18,9 +20,13 @@ public class ExampleScreen extends Screen {
 
     @Override
     protected void init() {
+        ConfigList configList = new ConfigList(this.client, this.width, this.height - 75, 43, 24);
+        addDrawableChild(configList);
 
-        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button ->
-                close()
+        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> {
+            ConfigRegister.getInstance().save(ExampleConfig.class);
+            close();
+                }
         ).dimensions(width / 2 - 100, height - 30, 200, 20).build());
     }
 

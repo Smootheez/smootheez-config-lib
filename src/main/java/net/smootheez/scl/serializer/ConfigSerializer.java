@@ -56,15 +56,15 @@ public interface ConfigSerializer<T> {
         }
     }
 
-    class FloatSerializer implements ConfigSerializer<Float> {
+    class FloatSerializer implements ConfigSerializer<Double> {
         @Override
-        public JsonElement serialize(Float value) {
+        public JsonElement serialize(Double value) {
             return new JsonPrimitive(value);
         }
 
         @Override
-        public Float deserialize(JsonElement json) {
-            return json.getAsFloat();
+        public Double deserialize(JsonElement json) {
+            return json.getAsDouble();
         }
     }
 
