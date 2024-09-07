@@ -8,4 +8,6 @@ public class ExampleCategory {
     public static final String CATEGORY_THREE = "C";
 
     public static final String CATEGORY_FOUR = "D";
+
+    public static final String CATEGORY_FIVE = "E";
 }

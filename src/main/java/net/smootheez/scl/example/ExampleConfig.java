@@ -1,35 +1,32 @@
 package net.smootheez.scl.example;
 
 import net.smootheez.scl.annotation.Config;
-import net.smootheez.scl.api.ConfigFileProvider;
+import net.smootheez.scl.api.ConfigProvider;
 import net.smootheez.scl.option.ConfigOption;
+import net.smootheez.scl.option.ConfigOptionList;
 
-import java.util.List;
 
-
-//TODO create the ExampleConfig
-@Config(configName = "exampleConfig")
-public class ExampleConfig implements ConfigFileProvider {
+@Config("exampleConfig")
+public class ExampleConfig implements ConfigProvider {
     private static final ExampleConfig INSTANCE = new ExampleConfig();
 
-    @Config.Category(category = ExampleCategory.CATEGORY_ONE)
-    private final ConfigOption<Boolean> exampleBoolean = ConfigOption.ofBoolean("exampleBoolean", true);
+    @Config.Category(ExampleCategory.CATEGORY_ONE)
+    private final ConfigOption<Boolean> exampleBoolean = ConfigOption.create("exampleBoolean",true);
 
-    @Config.Category(category = ExampleCategory.CATEGORY_ONE)
-    private final ConfigOption<Boolean> exampleBoolean1 = ConfigOption.ofBoolean("exampleBoolean1", false);
+    private final ConfigOption<Boolean> exampleBoolean1 = ConfigOption.create("exampleBoolean1", true);
 
-    private final ConfigOption<Boolean> exampleBoolean2 = ConfigOption.ofBoolean("exampleBoolean2", false);
-    private final ConfigOption<ExampleEnum> exampleEnum = ConfigOption.ofEnum("exampleEnum", ExampleEnum.ONE);
+    private final ConfigOption<Boolean> exampleBoolean2 = ConfigOption.create("exampleBoolean2", false);
+    @Config.Category(ExampleCategory.CATEGORY_TWO)
+    private final ConfigOption<ExampleEnum> exampleEnum = ConfigOption.create("exampleEnum", ExampleEnum.ONE);
 
+    @Config.Category(ExampleCategory.CATEGORY_THREE)
+    private final ConfigOption<Integer> exampleInteger = ConfigOption.create("exampleInteger", 0, 100);
 
-    @Config.Category(category = ExampleCategory.CATEGORY_TWO)
-    private final ConfigOption<Integer> exampleInteger = ConfigOption.ofInteger("exampleInteger", 0, 100);
+    @Config.Category(ExampleCategory.CATEGORY_FOUR)
+    private final ConfigOption<ConfigOptionList> exampleStringList = ConfigOption.create("exampleStringList", "exampleString", "exampleString2");
 
-    @Config.Category(category = ExampleCategory.CATEGORY_THREE)
-    private final ConfigOption<List<String>> exampleStringList = ConfigOption.ofStringList("exampleStringList", List.of("exampleString", "exampleString2"));
-
-    @Config.Category(category = ExampleCategory.CATEGORY_FOUR)
-    private final ConfigOption<Double> exampleDouble = ConfigOption.ofDouble("exampleDouble", 0.0, 1.0);
+    @Config.Category(ExampleCategory.CATEGORY_FIVE)
+    private final ConfigOption<Double> exampleDouble = ConfigOption.create("exampleDouble", 0.0);
 
     public static ExampleConfig getInstance() {
         return INSTANCE;
@@ -42,7 +39,7 @@ public class ExampleConfig implements ConfigFileProvider {
     public ConfigOption<ExampleEnum> getExampleEnum() {
         return exampleEnum;
     }
-    public ConfigOption<List<String>> getExampleStringList() {
+    public ConfigOption<ConfigOptionList> getExampleStringList() {
         return exampleStringList;
     }
 

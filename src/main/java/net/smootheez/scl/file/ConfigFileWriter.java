@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
 import net.smootheez.scl.annotation.Config;
-import net.smootheez.scl.api.ConfigFileProvider;
+import net.smootheez.scl.api.ConfigProvider;
 import net.smootheez.scl.option.ConfigOption;
 
 import java.io.File;
@@ -19,11 +19,11 @@ import java.util.*;
 public class ConfigFileWriter {
     private final Gson gson;
     private final File configFile;
-    private final ConfigFileProvider configProvider;
+    private final ConfigProvider configProvider;
     private final Map<String, Map<String, ConfigOptionAdapter<?>>> categoryAdapters;
     private final Map<String, ConfigOptionAdapter<?>> uncategorizedAdapters;
 
-    public ConfigFileWriter(ConfigFileProvider configProvider) {
+    public ConfigFileWriter(ConfigProvider configProvider) {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
         this.configProvider = configProvider;
         this.categoryAdapters = new TreeMap<>();
@@ -33,7 +33,7 @@ public class ConfigFileWriter {
         if (configAnnotation == null) {
             throw new IllegalArgumentException("ConfigFileProvider must be annotated with @Config");
         }
-        String configName = configAnnotation.configName();
+        String configName = configAnnotation.value();
         this.configFile = FabricLoader.getInstance().getConfigDir().resolve(configName + ".json").toFile();
 
         initializeAdapters();
@@ -50,7 +50,7 @@ public class ConfigFileWriter {
                     Config.Category categoryAnnotation = field.getAnnotation(Config.Category.class);
 
                     if (categoryAnnotation != null) {
-                        String category = categoryAnnotation.category();
+                        String category = categoryAnnotation.value();
                         categoryAdapters
                                 .computeIfAbsent(category, k -> new TreeMap<>())
                                 .put(option.getKey(), createAdapter(option));

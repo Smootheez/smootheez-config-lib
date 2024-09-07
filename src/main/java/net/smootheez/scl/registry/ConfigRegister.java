@@ -1,6 +1,6 @@
 package net.smootheez.scl.registry;
 
-import net.smootheez.scl.api.ConfigFileProvider;
+import net.smootheez.scl.api.ConfigProvider;
 import net.smootheez.scl.file.ConfigFileWriter;
 
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ConfigRegister {
     private static final ConfigRegister INSTANCE = new ConfigRegister();
-    private final Map<Class<? extends ConfigFileProvider>, ConfigFileWriter> configWriters;
+    private final Map<Class<? extends ConfigProvider>, ConfigFileWriter> configWriters;
 
     private ConfigRegister() {
         this.configWriters = new HashMap<>();
@@ -18,13 +18,13 @@ public class ConfigRegister {
         return INSTANCE;
     }
 
-    public <T extends ConfigFileProvider> void register(T config) {
+    public <T extends ConfigProvider> void register(T config) {
         ConfigFileWriter writer = new ConfigFileWriter(config);
         configWriters.put(config.getClass(), writer);
         writer.loadConfig();
     }
 
-    public <T extends ConfigFileProvider> void save(Class<T> configClass) {
+    public <T extends ConfigProvider> void save(Class<T> configClass) {
         ConfigFileWriter writer = configWriters.get(configClass);
         if (writer != null) {
             writer.saveConfig();
@@ -33,7 +33,7 @@ public class ConfigRegister {
         }
     }
 
-    public <T extends ConfigFileProvider> void reload(Class<T> configClass) {
+    public <T extends ConfigProvider> void reload(Class<T> configClass) {
         ConfigFileWriter writer = configWriters.get(configClass);
         if (writer != null) {
             writer.loadConfig();

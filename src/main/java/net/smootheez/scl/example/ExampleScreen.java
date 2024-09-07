@@ -7,6 +7,7 @@ import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.smootheez.scl.Scl;
 import net.smootheez.scl.gui.ConfigList;
+import net.smootheez.scl.option.ConfigOption;
 import net.smootheez.scl.registry.ConfigRegister;
 
 

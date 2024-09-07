@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df9fddcc-4a92-486c-a115-dedf2dfc7ef4" name="Changes" comment="Third Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigOptionList.java" afterDir="false" />
+    <list default="true" id="df9fddcc-4a92-486c-a115-dedf2dfc7ef4" name="Changes" comment="Fourth Commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOptionList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/annotation/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/annotation/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/api/ConfigFileProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/api/ConfigProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/api/ConfigScreenProvider.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileBuilderOD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/file/ConfigFileWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigOptionList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/registry/ConfigRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/registry/ConfigRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/serializer/ConfigSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/serializer/ConfigSerializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,9 +44,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="AnnotationType" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -49,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="creating-screen" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +80,7 @@
     &quot;Gradle.Build smootheez-config-lib.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;creating-screen&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gamerules-like&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Documents/Minecraft Java Mod Dev/Learn/Fabric/smootheez-config-lib&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
@@ -115,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725371029830</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fourth Commit">
+      <option name="closed" value="true" />
+      <created>1725525405571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725525405571</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -143,6 +156,7 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Second Commit" />
     <MESSAGE value="Third Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Third Commit" />
+    <MESSAGE value="Fourth Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fourth Commit" />
   </component>
 </project>

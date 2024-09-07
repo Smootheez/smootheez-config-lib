@@ -3,6 +3,7 @@ package net.smootheez.scl.serializer;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import net.smootheez.scl.option.ConfigOptionList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,24 +24,24 @@ public interface ConfigSerializer<T> {
         }
     }
 
-    class StringListSerializer implements ConfigSerializer<List<String>> {
+    class ConfigOptionListSerializer implements ConfigSerializer<ConfigOptionList> {
         @Override
-        public JsonElement serialize(List<String> value) {
+        public JsonElement serialize(ConfigOptionList value) {
             JsonArray array = new JsonArray();
-            for (String s : value) {
+            for (String s : value.values()) {
                 array.add(new JsonPrimitive(s));
             }
             return array;
         }
 
         @Override
-        public List<String> deserialize(JsonElement json) {
+        public ConfigOptionList deserialize(JsonElement json) {
             JsonArray array = json.getAsJsonArray();
             List<String> list = new ArrayList<>();
             for (JsonElement element : array) {
                 list.add(element.getAsString());
             }
-            return list;
+            return new ConfigOptionList(list);
         }
     }
 
