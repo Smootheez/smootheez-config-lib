@@ -1,0 +1,3 @@
+{
+  "options.exampleBoolean.description": "This is a very long text that will be wrapped across multiple lines. It can be used to display information to the player in a config screen. You can add multiple lines of text by separating them with commas."
+}

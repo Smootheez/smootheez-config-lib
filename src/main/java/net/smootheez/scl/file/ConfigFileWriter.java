@@ -31,7 +31,7 @@ public class ConfigFileWriter {
 
         Config configAnnotation = configProvider.getClass().getAnnotation(Config.class);
         if (configAnnotation == null) {
-            throw new IllegalArgumentException("ConfigFileProvider must be annotated with @Config");
+            throw new IllegalArgumentException("ConfigFileWriter must be annotated with @Config");
         }
         String configName = configAnnotation.value();
         this.configFile = FabricLoader.getInstance().getConfigDir().resolve(configName + ".json").toFile();

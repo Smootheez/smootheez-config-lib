@@ -2,44 +2,69 @@ package net.smootheez.scl.gui;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
-import net.minecraft.client.gui.screen.world.EditGameRulesScreen;
-import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.CyclingButtonWidget;
 import net.minecraft.client.gui.widget.ElementListWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.minecraft.world.GameRules;
+import net.smootheez.scl.example.ExampleCategory;
 import net.smootheez.scl.example.ExampleConfig;
 import net.smootheez.scl.option.ConfigOption;
-import net.smootheez.scl.option.ConfigOptionList;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConfigList extends ElementListWidget<ConfigList.AbstractConfigWidget> {
-    public ConfigList(MinecraftClient client, int i, int j, int k, int l) {
+    private final Screen screen;
+    public ConfigList(MinecraftClient client, int i, int j, int k, int l, Screen screen) {
         super(client, i, j, k, l);
+        this.screen = screen;
 
-        addEntry(new BooleanConfigWidget(ExampleConfig.getInstance().getExampleBoolean().getTranslationKey(), null, "ExampleBoolean", ExampleConfig.getInstance().getExampleBoolean()));
-        addEntry(new BooleanConfigWidget(ExampleConfig.getInstance().getExampleBoolean().getTranslationKey(), null, "ExampleBoolean", ExampleConfig.getInstance().getExampleBoolean1()));
+        ExampleConfig config = ExampleConfig.getInstance();
+        Map<String, ConfigOption<Boolean>> map = new HashMap<>();
+        map.put(config.getExampleBoolean().getKey(), config.getExampleBoolean());
+        map.put(config.getExampleBoolean1().getKey(), config.getExampleBoolean1());
+        addWidgetsFromMap(map);
+
+//        addEntry(new BooleanConfigWidget(ExampleConfig.getInstance().getExampleBoolean1().getTranslationKey(), null, ExampleConfig.getInstance().getExampleBoolean1()));
+//        addEntry(new BooleanConfigWidget(ExampleConfig.getInstance().getExampleBoolean2().getTranslationKey(), null, ExampleConfig.getInstance().getExampleBoolean2()));
+//
+//        addEntry(new CategoryEntry(Text.of(ExampleCategory.CATEGORY_ONE)));
+//
+//        addEntry(new BooleanConfigWidget(ExampleConfig.getInstance().getExampleBoolean().getTranslationKey(), orderedTexts, ExampleConfig.getInstance().getExampleBoolean()));
+    }
+
+    private void addWidgetsFromMap(Map<String, ConfigOption<Boolean>> map) {
+        for (Map.Entry<String, ConfigOption<Boolean>> entry : map.entrySet()) {
+            String name = entry.getKey();
+            ConfigOption<Boolean> option = entry.getValue();
+            String string = option.getTranslationKey() + ".description";
+            List<OrderedText> orderedTexts = I18n.hasTranslation(string) ? ConfigList.this.client.textRenderer.wrapLines(Text.translatable(string), 200) : null;
+            AbstractConfigWidget widget = new BooleanConfigWidget(Text.of(name), orderedTexts, option);
+            addEntry(widget);
+        }
     }
 
     @Override
     protected int getScrollbarPositionX() {
-        return super.getScrollbarPositionX() + 40;
+        return super.getScrollbarPositionX() + 50;
     }
 
     @Override
     public int getRowWidth() {
-        return super.getRowWidth() + 80;
+        return super.getRowWidth() + 100;
     }
 
     @Override
@@ -47,18 +72,17 @@ public class ConfigList extends ElementListWidget<ConfigList.AbstractConfigWidge
         super.renderWidget(context, mouseX, mouseY, delta);
         AbstractConfigWidget abstractConfigWidget = this.getHoveredEntry();
             if (abstractConfigWidget != null && abstractConfigWidget.description != null) {
-            ConfigList.this.setTooltip((Tooltip) abstractConfigWidget.description);
+            screen.setTooltip(abstractConfigWidget.description);
         }
     }
 
     public class BooleanConfigWidget extends NamedConfigWidget {
         private final CyclingButtonWidget<Boolean> toggleButton;
 
-        public BooleanConfigWidget(Text name, List<OrderedText> description, String optionName, ConfigOption<Boolean> option) {
+        public BooleanConfigWidget(Text name, List<OrderedText> description, ConfigOption<Boolean> option) {
             super(description, name);
             this.toggleButton = CyclingButtonWidget.onOffBuilder(option.getValue())
                     .omitKeyText()
-                    .narration(button -> button.getGenericNarrationMessage().append("\n").append(optionName))
                     .build(10, 5, 44, 20, name, (button, value) -> option.setValue(value));
             this.children.add(this.toggleButton);
         }
@@ -155,6 +179,6 @@ public class ConfigList extends ElementListWidget<ConfigList.AbstractConfigWidge
     }
 
     interface ConfigWidgetFactory<T extends ConfigOption<T>> {
-        AbstractConfigWidget create(Text name, List<OrderedText> description, String ruleName, T option);
+        AbstractConfigWidget create(Text name, List<OrderedText> description, T option);
     }
 }

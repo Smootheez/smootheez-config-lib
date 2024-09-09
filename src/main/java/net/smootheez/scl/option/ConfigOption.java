@@ -1,11 +1,12 @@
 package net.smootheez.scl.option;
 
+import com.google.common.collect.Maps;
 import net.minecraft.text.Text;
-import net.smootheez.scl.example.Category;
 import net.smootheez.scl.serializer.ConfigSerializer;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Map;
 
 public class ConfigOption<T> {
     protected final String key;
@@ -33,8 +34,8 @@ public class ConfigOption<T> {
         return key;
     }
 
-    public Text getTranslationKey() {
-        return Text.translatable("options." + key);
+    public String getTranslationKey() {
+        return "options." + key;
     }
 
     public T getMaxValue() {

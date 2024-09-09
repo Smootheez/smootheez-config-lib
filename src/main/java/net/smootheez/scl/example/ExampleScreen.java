@@ -21,7 +21,7 @@ public class ExampleScreen extends Screen {
 
     @Override
     protected void init() {
-        ConfigList configList = new ConfigList(this.client, this.width, this.height - 75, 43, 24);
+        ConfigList configList = new ConfigList(this.client, this.width, this.height - 75, 43, 24, this);
         addDrawableChild(configList);
 
         addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> {
