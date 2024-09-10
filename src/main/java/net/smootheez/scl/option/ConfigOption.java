@@ -1,12 +1,8 @@
 package net.smootheez.scl.option;
 
-import com.google.common.collect.Maps;
-import net.minecraft.text.Text;
 import net.smootheez.scl.serializer.ConfigSerializer;
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Map;
 
 public class ConfigOption<T> {
     protected final String key;
@@ -40,6 +36,10 @@ public class ConfigOption<T> {
 
     public T getMaxValue() {
         return maxValue;
+    }
+
+    public Class<T> getType() {
+        return type;
     }
 
     public T getValue() {
