@@ -2,6 +2,7 @@ package net.smootheez.scl.option;
 
 import net.smootheez.scl.serializer.ConfigSerializer;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 public class ConfigOption<T> {
@@ -56,6 +57,33 @@ public class ConfigOption<T> {
 
     public ConfigSerializer<T> getSerializer() {
         return serializer;
+    }
+
+
+    public boolean validateStringValue(String input) {
+        try {
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean validateIntValue(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean validateDoubleValue(String input) {
+        try {
+            Double.parseDouble(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public static ConfigOption<Boolean> create(String key, Boolean defaultValue) {

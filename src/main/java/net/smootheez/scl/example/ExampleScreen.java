@@ -29,11 +29,11 @@ public class ExampleScreen extends Screen {
 
     @Override
     protected void init() {
-//        configList = new ConfigList(this.client, this.width, this.height - 75, 43, 24, this, ExampleConfig.getInstance().getExampleBoolean());
         tabNavigation = TabNavigationWidget.builder(this.tabManager, this.width)
                 .tabs(new ConfigTabOne(), new ConfigTabTwo(), new ConfigTabThree(), new ConfigTabFour())
                 .build();
         addDrawableChild(tabNavigation);
+
         grid = new GridWidget().setColumnSpacing(10);
         GridWidget.Adder adder = grid.createAdder(2);
         adder.add(ButtonWidget.builder(ScreenTexts.DONE, button -> {
@@ -45,14 +45,9 @@ public class ExampleScreen extends Screen {
             child.setNavigationOrder(1);
             addDrawableChild(child);
         });
+
         tabNavigation.selectTab(0, false);
         initTabNavigation();
-
-//        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> {
-//            ConfigRegister.getInstance().save(ExampleConfig.class);
-//            close();
-//                }
-//        ).dimensions(width / 2 - 100, height - 30, 200, 20).build());
     }
 
     @Override
@@ -78,7 +73,6 @@ public class ExampleScreen extends Screen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-//        context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 16777215);
     }
 
     @Override
@@ -91,8 +85,7 @@ public class ExampleScreen extends Screen {
         public ConfigTabOne() {
             super(Text.of("Tab 1"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this,
-                    ExampleConfig.getInstance().getExampleBoolean()));
+            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this));
         }
 
     }
@@ -102,8 +95,7 @@ public class ExampleScreen extends Screen {
         public ConfigTabTwo() {
             super(Text.of("Tab 2"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this,
-                    ExampleConfig.getInstance().getExampleBoolean1()));
+            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this));
         }
     }
 

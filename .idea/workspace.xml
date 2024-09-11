@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.1">
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/BooleanConfigWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/CycleConfigWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/DoubleConfigTextWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/IntConfigTextWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/NamedConfigWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/TextConfigWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/ConfigList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,17 +50,26 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;gamerules-like&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/.gradle&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "gamerules-like",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/.gradle",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="net.smootheez.scl.gui.widget" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.smootheez.scl.gui.widget" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Minecraft Client" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -70,11 +88,20 @@
       <option name="project" value="LOCAL" />
       <updated>1725882246375</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="0.0.2">
+      <option name="closed" value="true" />
+      <created>1726006429846</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726006429846</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.1" />
+    <MESSAGE value="0.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.2" />
   </component>
 </project>
