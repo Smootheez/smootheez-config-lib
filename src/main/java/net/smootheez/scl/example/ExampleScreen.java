@@ -81,21 +81,19 @@ public class ExampleScreen extends Screen {
     }
 
     class ConfigTabOne extends GridScreenTab {
-
         public ConfigTabOne() {
             super(Text.of("Tab 1"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this));
+            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this));
         }
 
     }
 
     class ConfigTabTwo extends GridScreenTab {
-
         public ConfigTabTwo() {
             super(Text.of("Tab 2"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this.width, ExampleScreen.this.height - 64, 32, 25, ExampleScreen.this));
+            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this));
         }
     }
 

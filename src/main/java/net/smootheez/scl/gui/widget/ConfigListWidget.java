@@ -1,5 +1,6 @@
 package net.smootheez.scl.gui.widget;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -7,39 +8,50 @@ import net.minecraft.client.gui.widget.ElementListWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.smootheez.scl.example.ExampleConfig;
+import net.smootheez.scl.example.ExampleScreen;
 import net.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Map;
 
 public class ConfigListWidget extends ElementListWidget<ConfigListWidget.AbstractConfigWidget> {
     private final Screen screen;
-    public ConfigListWidget(MinecraftClient client, int i, int j, int k, int l, Screen screen) {
-        super(client, i, j, k, l);
+    public ConfigListWidget(MinecraftClient client, Screen screen) {
+        super(client, screen.width, screen.height - 64, 32, 25);
         this.screen = screen;
 
-//        Map<String, ConfigOption<Boolean>> options = new HashMap<>();
-//        options.put(option.getTranslationKey(), option);
         var configOption = ExampleConfig.getInstance();
 
-//        addWidgetsFromMap(options);
-        addEntry(new CycleConfigWidget<>(Text.translatable(configOption.getExampleEnum().getTranslationKey()), null, configOption.getExampleEnum(), this.client));
-        addEntry(new IntConfigTextWidget(Text.translatable(configOption.getExampleInteger().getTranslationKey()), null, configOption.getExampleInteger(), this.client));
-        addEntry(new BooleanConfigWidget(Text.translatable(configOption.getExampleBoolean().getTranslationKey()), null, configOption.getExampleBoolean(), this.client));
-        addEntry(new DoubleConfigTextWidget(Text.translatable(configOption.getExampleDouble().getTranslationKey()), null, configOption.getExampleDouble(), this.client));
-        addEntry(new TextConfigWidget(Text.translatable(configOption.getExampleStringList().getTranslationKey()), null, configOption.getExampleStringList(), this.client));
+        addEntry(createWidget(configOption.getExampleBoolean()));
+        addEntry(createWidget(configOption.getExampleEnum()));
+        addEntry(createWidget(configOption.getExampleInteger()));
+        addEntry(createWidget(configOption.getExampleStringList()));
+        addEntry(createWidget(configOption.getExampleDouble()));
     }
 
-    private void addWidgetsFromMap(Map<String, ConfigOption<Boolean>> map) {
-        for (Map.Entry<String, ConfigOption<Boolean>> entry : map.entrySet()) {
-            String name = entry.getKey();
-            ConfigOption<Boolean> option = entry.getValue();
-            String string = option.getTranslationKey() + ".description";
-            List<OrderedText> orderedTexts = I18n.hasTranslation(string) ? ConfigListWidget.this.client.textRenderer.wrapLines(Text.translatable(string), 200) : null;
-            AbstractConfigWidget widget = new BooleanConfigWidget(Text.translatable(name), orderedTexts, option, this.client);
-            addEntry(widget);
+    private <T> AbstractConfigWidget createWidget(ConfigOption<T> option) {
+        List<OrderedText> orderedTexts = createOrderedTextList(option);
+        return option.getWidgetHandler().createWidget(option, orderedTexts, this.client);
+    }
+
+    private List<OrderedText> createOrderedTextList(ConfigOption<?> option) {
+        String descriptionKey = option.getTranslationKey() + ".description";
+        Text descriptionText = Text.translatable(descriptionKey);
+        Text defaultValueText = Text.translatable("options.default", Text.literal(option.getDefaultValue().toString())).formatted(Formatting.GRAY);
+
+        if (I18n.hasTranslation(descriptionKey)) {
+            ImmutableList.Builder<OrderedText> builder = ImmutableList.builder();
+            builder.add(Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText());
+            this.client.textRenderer.wrapLines(descriptionText, 200).forEach(builder::add);
+            builder.add(defaultValueText.asOrderedText());
+            return builder.build();
+        } else {
+            return ImmutableList.of(
+                    Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText(),
+                    defaultValueText.asOrderedText()
+            );
         }
     }
 

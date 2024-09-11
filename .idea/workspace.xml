@@ -7,17 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/BooleanConfigWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/CycleConfigWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/DoubleConfigTextWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/IntConfigTextWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/NamedConfigWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/TextConfigWidget.java" afterDir="false" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/option/ConfigOption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,12 +88,48 @@
       <option name="project" value="LOCAL" />
       <updated>1726006429846</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="0.0.3">
+      <option name="closed" value="true" />
+      <created>1726034517941</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726034517941</updated>
+    </task>
+    <task id="LOCAL-00004" summary="0.0.3">
+      <option name="closed" value="true" />
+      <created>1726034539533</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726034539533</updated>
+    </task>
+    <task id="LOCAL-00005" summary="0.0.3">
+      <option name="closed" value="true" />
+      <created>1726034544938</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726034544938</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0.0.1" />
     <MESSAGE value="0.0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.2" />
+    <MESSAGE value="0.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.3" />
   </component>
 </project>
