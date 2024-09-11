@@ -1,8 +1,6 @@
 package net.smootheez.scl.option;
 
 import net.smootheez.scl.serializer.ConfigSerializer;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 public class ConfigOption<T> {

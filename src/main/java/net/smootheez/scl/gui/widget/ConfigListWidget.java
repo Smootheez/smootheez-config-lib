@@ -10,7 +10,6 @@ import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.smootheez.scl.example.ExampleConfig;
-import net.smootheez.scl.example.ExampleScreen;
 import net.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,12 +25,9 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
 
         addEntry(createWidget(configOption.getExampleBoolean()));
         addEntry(createWidget(configOption.getExampleEnum()));
-        addEntry(createWidget(configOption.getExampleInteger()));
-        addEntry(createWidget(configOption.getExampleStringList()));
-        addEntry(createWidget(configOption.getExampleDouble()));
     }
 
-    private <T> AbstractConfigWidget createWidget(ConfigOption<T> option) {
+    public  <T> AbstractConfigWidget createWidget(ConfigOption<T> option) {
         List<OrderedText> orderedTexts = createOrderedTextList(option);
         return option.getWidgetHandler().createWidget(option, orderedTexts, this.client);
     }

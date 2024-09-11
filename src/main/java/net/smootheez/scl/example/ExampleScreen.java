@@ -21,6 +21,7 @@ public class ExampleScreen extends Screen {
     private TabNavigationWidget tabNavigation;
     private GridWidget grid;
     public ConfigListWidget configList;
+    public ExampleListWidget configList1;
 
     public ExampleScreen(Screen parent) {
         super(Text.of("Configuration Screen"));
@@ -93,7 +94,7 @@ public class ExampleScreen extends Screen {
         public ConfigTabTwo() {
             super(Text.of("Tab 2"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this));
+            adder.add(configList1 = new ExampleListWidget(ExampleScreen.this.client, ExampleScreen.this));
         }
     }
 
