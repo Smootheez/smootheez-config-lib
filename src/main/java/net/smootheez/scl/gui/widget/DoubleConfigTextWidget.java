@@ -12,12 +12,15 @@ import java.util.List;
 
 public class DoubleConfigTextWidget extends NamedConfigWidget {
     private final TextFieldWidget textField;
-    public DoubleConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Double> option, MinecraftClient client) {
-        super(name, description, client);
+    public DoubleConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Double> option) {
+        super(name, description);
+        final MinecraftClient client = MinecraftClient.getInstance();
         textField = new TextFieldWidget(client.textRenderer, 10, 5, 74, 20, name);
         textField.setText(Double.toString(option.getValue()));
         textField.setChangedListener(value -> {
-            if (option.validateDoubleValue(value) && Double.parseDouble(value) <= option.getMaxValue()) {
+            if (option.validateDoubleValue(value)
+                    && Double.parseDouble(value) <= option.getMinValue()
+                    && Double.parseDouble(value) <= option.getMaxValue()) {
                 textField.setEditableColor(14737632);
                 option.setValue(Double.valueOf(value));
             } else {

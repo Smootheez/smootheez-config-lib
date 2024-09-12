@@ -17,7 +17,7 @@ public class AutoConfigListWidget extends ConfigListWidget {
     private final Map<String, Map<String, ConfigOption<?>>> categoryWidgets = Maps.newHashMap();
     private final Map<String, ConfigOption<?>> uncategorizedWidgets = Maps.newHashMap();
 
-    public AutoConfigListWidget(MinecraftClient client, ConfigProvider provider) {
+    public AutoConfigListWidget(MinecraftClient client, ConfigProvider provider, String modId) {
         super(client);
         this.provider = provider;
 
@@ -25,10 +25,10 @@ public class AutoConfigListWidget extends ConfigListWidget {
         if (configAnnotation == null) {
             throw new IllegalArgumentException("AutoConfigListWidget must be annotated with @Config");
         }
-        autoConfigEntrys();
+        autoConfigEntrys(modId);
     }
 
-    private void autoConfigEntrys() {
+    private void autoConfigEntrys(String modId) {
         for (Field field : provider.getClass().getDeclaredFields()) {
             if (field.getType() == ConfigOption.class) {
                 field.setAccessible(true);
@@ -47,24 +47,24 @@ public class AutoConfigListWidget extends ConfigListWidget {
                 }
             }
         }
-        addWidgetsFromMap(uncategorizedWidgets);
-        addCategoryWidget(categoryWidgets);
+        addWidgetsFromMap(uncategorizedWidgets, modId);
+        addCategoryWidget(categoryWidgets, modId);
     }
 
-    private void addWidgetsFromMap(Map<String, ConfigOption<?>> map) {
+    private void addWidgetsFromMap(Map<String, ConfigOption<?>> map, String modId) {
         map.forEach((key, option) -> {
-            AbstractConfigWidget widget = createWidget(option);
+            AbstractConfigWidget widget = createWidget(option, modId);
             addEntry(widget);
         });
     }
 
-    private void addCategoryWidget(Map<String, Map<String, ConfigOption<?>>> map) {
+    private void addCategoryWidget(Map<String, Map<String, ConfigOption<?>>> map, String modId) {
         map.forEach((categoryName, categoryOptions) -> {
             ConfigCategoryWidget categoryWidget = new ConfigCategoryWidget(Text.translatable(categoryName).formatted(Formatting.BOLD, Formatting.GOLD));
             addEntry(categoryWidget);
 
             categoryOptions.forEach((key, option) -> {
-                AbstractConfigWidget widget = createWidget(option);
+                AbstractConfigWidget widget = createWidget(option, modId);
                 addEntry(widget);
             });
         });

@@ -15,8 +15,8 @@ import java.util.List;
 public class BooleanConfigWidget extends NamedConfigWidget{
     private final CyclingButtonWidget<Boolean> toggleButton;
 
-    public BooleanConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Boolean> option, MinecraftClient client) {
-        super(name, description, client);
+    public BooleanConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Boolean> option) {
+        super(name, description);
         this.toggleButton = CyclingButtonWidget.onOffBuilder(option.getValue())
                 .omitKeyText()
                 .build(10, 5, 74, 20, name, (button, value) -> option.setValue(value));

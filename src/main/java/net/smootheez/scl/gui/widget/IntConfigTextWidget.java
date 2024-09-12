@@ -13,12 +13,15 @@ import java.util.List;
 public class IntConfigTextWidget extends NamedConfigWidget {
     private final TextFieldWidget textField;
 
-    public IntConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Integer> option, MinecraftClient client) {
-        super(name, description, client);
+    public IntConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Integer> option) {
+        super(name, description);
+        final MinecraftClient client = MinecraftClient.getInstance();
         textField = new TextFieldWidget(client.textRenderer, 10, 5, 74, 20, name);
         textField.setText(Integer.toString(option.getValue()));
         textField.setChangedListener(value -> {
-            if (option.validateIntValue(value) && Integer.parseInt(value) <= option.getMaxValue()) {
+            if (option.validateIntValue(value)
+                    && Integer.parseInt(value) <= option.getMinValue()
+                    && Integer.parseInt(value) <= option.getMaxValue()) {
                 textField.setEditableColor(14737632);
                 option.setValue(Integer.valueOf(value));
             } else {

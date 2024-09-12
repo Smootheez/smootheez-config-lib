@@ -7,6 +7,7 @@ public class ConfigOption<T> {
     protected final String key;
     protected T value;
     protected T maxValue;
+    protected T minValue;
     protected final T defaultValue;
 
     protected final Class<T> type;
@@ -22,13 +23,14 @@ public class ConfigOption<T> {
         this.widgetHandler = widgetHandler;
     }
 
-    public ConfigOption(String key, T defaultValue, Class<T> type, ConfigSerializer<T> serializer, WidgetHandler<T> widgetHandler, T maxValue) {
+    public ConfigOption(String key, T defaultValue, Class<T> type, ConfigSerializer<T> serializer, WidgetHandler<T> widgetHandler, T minValue, T maxValue) {
         this.key = key;
         this.value = defaultValue;
         this.defaultValue = defaultValue;
         this.type = type;
         this.serializer = serializer;
         this.widgetHandler = widgetHandler;
+        this.minValue = minValue;
         this.maxValue = maxValue;
     }
 
@@ -36,12 +38,16 @@ public class ConfigOption<T> {
         return key;
     }
 
-    public String getTranslationKey() {
-        return "options." + key;
+    public String getTranslationKey(String modId) {
+        return "options." + modId + "." + key;
     }
 
     public T getMaxValue() {
         return maxValue;
+    }
+
+    public T getMinValue() {
+        return minValue;
     }
 
     public Class<T> getType() {
@@ -100,14 +106,14 @@ public class ConfigOption<T> {
                 new ConfigOptionList(Arrays.asList(defaultValues)), ConfigOptionList.class, new ConfigSerializer.ConfigOptionListSerializer(), new WidgetHandler.TextWidgetHandler());
     }
 
-    public static ConfigOption<Integer> create(String key, Integer defaultValue, Integer maxValue) {
+    public static ConfigOption<Integer> create(String key, Integer defaultValue, Integer minValue, Integer maxValue) {
         return new ConfigOption<>(key,
-                defaultValue, Integer.class, new ConfigSerializer.IntegerSerializer(), new WidgetHandler.IntWidgetHandler(), maxValue);
+                defaultValue, Integer.class, new ConfigSerializer.IntegerSerializer(), new WidgetHandler.IntWidgetHandler(), minValue, maxValue);
     }
 
-    public static ConfigOption<Double> create(String key, Double defaultValue) {
+    public static ConfigOption<Double> create(String key, Double defaultValue, Double minValue, Double maxValue) {
         return new ConfigOption<>(key,
-                defaultValue, Double.class, new ConfigSerializer.FloatSerializer(), new WidgetHandler.DoubleWidgetHandler(), 1.0);
+                defaultValue, Double.class, new ConfigSerializer.FloatSerializer(), new WidgetHandler.DoubleWidgetHandler(), minValue, maxValue);
     }
 
     public static <E extends Enum<E>> ConfigOption<E> create(String key, E defaultValue) {

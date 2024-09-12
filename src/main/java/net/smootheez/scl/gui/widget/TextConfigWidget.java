@@ -14,8 +14,9 @@ import java.util.List;
 public class TextConfigWidget extends NamedConfigWidget {
     private final TextFieldWidget textField;
 
-    public TextConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<ConfigOptionList> option, MinecraftClient client) {
-        super(name, description, client);
+    public TextConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<ConfigOptionList> option) {
+        super(name, description);
+        final MinecraftClient client = MinecraftClient.getInstance();
         textField = new TextFieldWidget(client.textRenderer, 10, 5, 74, 20, name);
         textField.setMaxLength(Integer.MAX_VALUE);
         textField.setText(getConfigOptionListString(option.getValue()));

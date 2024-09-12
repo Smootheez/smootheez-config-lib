@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.5" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.7-a" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,20 +27,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Smootheez"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Smootheez&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Smootheez/smootheez-config-lib.git",
-    "accountId": "4f15765d-8977-4f0e-80a6-97879ed98add"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Smootheez/smootheez-config-lib.git&quot;,
+    &quot;accountId&quot;: &quot;4f15765d-8977-4f0e-80a6-97879ed98add&quot;
   }
-}]]></component>
+}</component>
   <component name="GradleLocalSettings">
     <option name="myGradleUserHome" value="$USER_HOME$/.gradle" />
   </component>
@@ -59,7 +64,7 @@
     "Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "dev-1.20.4",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/.gradle",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -71,6 +76,7 @@
       <recent name="net.smootheez.scl.gui.widget" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.smootheez.scl.example" />
       <recent name="net.smootheez.scl.gui.widget" />
     </key>
   </component>
@@ -140,7 +146,39 @@
       <option name="project" value="LOCAL" />
       <updated>1726062337974</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0.0.6">
+      <option name="closed" value="true" />
+      <created>1726109242704</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726109242704</updated>
+    </task>
+    <task id="LOCAL-00009" summary="0.0.7">
+      <option name="closed" value="true" />
+      <created>1726118462366</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726118462366</updated>
+    </task>
+    <task id="LOCAL-00010" summary="0.0.7">
+      <option name="closed" value="true" />
+      <created>1726127351302</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726127351302</updated>
+    </task>
+    <task id="LOCAL-00011" summary="0.0.7-a">
+      <option name="closed" value="true" />
+      <created>1726127950635</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726127950635</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +198,9 @@
     <MESSAGE value="0.0.3" />
     <MESSAGE value="0.0.4" />
     <MESSAGE value="0.0.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.5" />
+    <MESSAGE value="0.0.6" />
+    <MESSAGE value="0.0.7" />
+    <MESSAGE value="0.0.7-a" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.7-a" />
   </component>
 </project>

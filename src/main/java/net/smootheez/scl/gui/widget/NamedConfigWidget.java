@@ -15,12 +15,11 @@ import java.util.List;
 public abstract class NamedConfigWidget extends ConfigListWidget.AbstractConfigWidget{
     private final List<OrderedText> name;
     protected final List<ClickableWidget> children = Lists.newArrayList();
-    private final MinecraftClient client;
+    private final MinecraftClient client = MinecraftClient.getInstance();
 
-    public NamedConfigWidget(Text name, @Nullable List<OrderedText> description, MinecraftClient client) {
+    public NamedConfigWidget(Text name, @Nullable List<OrderedText> description) {
         super(description);
-        this.client = client;
-        this.name = this.client.textRenderer.wrapLines(name, 175);
+        this.name = this.client.textRenderer.wrapLines(name, 350);
     }
 
     @Override

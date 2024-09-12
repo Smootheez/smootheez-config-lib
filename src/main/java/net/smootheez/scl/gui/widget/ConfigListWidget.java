@@ -18,13 +18,13 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
         super(client, client.currentScreen != null ? client.currentScreen.width : 0, (client.currentScreen != null ? client.currentScreen.height : 0) - 64, 32, 25);
     }
 
-    public  <T> AbstractConfigWidget createWidget(ConfigOption<T> option) {
-        List<OrderedText> orderedTexts = createOrderedTextList(option);
-        return option.getWidgetHandler().createWidget(option, orderedTexts, this.client);
+    public  <T> AbstractConfigWidget createWidget(ConfigOption<T> option, String modId) {
+        List<OrderedText> orderedTexts = createOrderedTextList(option, modId);
+        return option.getWidgetHandler().createWidget(option, orderedTexts, modId);
     }
 
-    private List<OrderedText> createOrderedTextList(ConfigOption<?> option) {
-        String descriptionKey = option.getTranslationKey() + ".description";
+    private List<OrderedText> createOrderedTextList(ConfigOption<?> option, String modId) {
+        String descriptionKey = option.getTranslationKey(modId) + ".description";
         Text descriptionText = Text.translatable(descriptionKey);
         Text defaultValueText = Text.translatable("options.scl.default", Text.literal(option.getDefaultValue().toString())).formatted(Formatting.GRAY);
 

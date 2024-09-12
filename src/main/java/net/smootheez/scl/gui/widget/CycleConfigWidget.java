@@ -13,8 +13,8 @@ import java.util.List;
 public class CycleConfigWidget <T extends Enum<T>> extends NamedConfigWidget {
     private final CyclingButtonWidget<T> cycleButton;
 
-    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option, MinecraftClient client) {
-        super(name, description, client);
+    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option) {
+        super(name, description);
         T[] enumValues = option.getType().getEnumConstants();
         cycleButton = CyclingButtonWidget.<T>builder(e -> Text.of(e.name()))
                 .omitKeyText()
