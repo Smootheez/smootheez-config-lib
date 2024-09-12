@@ -7,7 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.7-a" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.8">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ModMenuImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +28,31 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smootheez-config-lib" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smootheez-config-lib" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="dev-1.20.4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,9 +100,9 @@
     "Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "dev-1.20.4",
+    "git-widget-placeholder": "dev-1.20.5",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/.gradle",
+    "last_opened_file_path": "C:/Users/smoot/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-merged/1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2/minecraft-merged-1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2-sources.jar",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
@@ -178,7 +214,63 @@
       <option name="project" value="LOCAL" />
       <updated>1726127950635</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="0.0.7-a">
+      <option name="closed" value="true" />
+      <created>1726129912389</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726129912389</updated>
+    </task>
+    <task id="LOCAL-00013" summary="0.0.7-b">
+      <option name="closed" value="true" />
+      <created>1726131561252</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726131561252</updated>
+    </task>
+    <task id="LOCAL-00014" summary="0.0.7-b">
+      <option name="closed" value="true" />
+      <created>1726131714069</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1726131714069</updated>
+    </task>
+    <task id="LOCAL-00015" summary="0.0.7-b">
+      <option name="closed" value="true" />
+      <created>1726133629155</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726133629155</updated>
+    </task>
+    <task id="LOCAL-00016" summary="0.0.7-b">
+      <option name="closed" value="true" />
+      <created>1726135857994</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726135857994</updated>
+    </task>
+    <task id="LOCAL-00017" summary="0.0.7-b">
+      <option name="closed" value="true" />
+      <created>1726135888620</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726135888620</updated>
+    </task>
+    <task id="LOCAL-00018" summary="0.0.8">
+      <option name="closed" value="true" />
+      <created>1726182237439</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1726182237439</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +293,8 @@
     <MESSAGE value="0.0.6" />
     <MESSAGE value="0.0.7" />
     <MESSAGE value="0.0.7-a" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.7-a" />
+    <MESSAGE value="0.0.7-b" />
+    <MESSAGE value="0.0.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.8" />
   </component>
 </project>

@@ -19,7 +19,7 @@ public interface WidgetHandler<T> {
     class CycleWidgetHandler<E extends Enum<E>> implements WidgetHandler<E> {
         @Override
         public ConfigListWidget.AbstractConfigWidget createWidget(ConfigOption<E> option, List<OrderedText> description, String modId) {
-            return new CycleConfigWidget<>(Text.translatable(option.getTranslationKey(modId)), description, option);
+            return new CycleConfigWidget<>(Text.translatable(option.getTranslationKey(modId)), description, option, modId);
         }
     }
 

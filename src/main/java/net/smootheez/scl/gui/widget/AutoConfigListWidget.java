@@ -11,14 +11,14 @@ import net.smootheez.scl.option.ConfigOption;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class AutoConfigListWidget extends ConfigListWidget {
     private final ConfigProvider provider;
     private final Map<String, Map<String, ConfigOption<?>>> categoryWidgets = Maps.newHashMap();
     private final Map<String, ConfigOption<?>> uncategorizedWidgets = Maps.newHashMap();
 
-    public AutoConfigListWidget(MinecraftClient client, ConfigProvider provider, String modId) {
-        super(client);
+    public AutoConfigListWidget(ConfigProvider provider, String modId) {
         this.provider = provider;
 
         Config configAnnotation = provider.getClass().getAnnotation(Config.class);
@@ -47,7 +47,7 @@ public class AutoConfigListWidget extends ConfigListWidget {
                 }
             }
         }
-        addWidgetsFromMap(uncategorizedWidgets, modId);
+        addWidgetsFromMap(new TreeMap<>(uncategorizedWidgets), modId);
         addCategoryWidget(categoryWidgets, modId);
     }
 
@@ -59,14 +59,12 @@ public class AutoConfigListWidget extends ConfigListWidget {
     }
 
     private void addCategoryWidget(Map<String, Map<String, ConfigOption<?>>> map, String modId) {
-        map.forEach((categoryName, categoryOptions) -> {
-            ConfigCategoryWidget categoryWidget = new ConfigCategoryWidget(Text.translatable(categoryName).formatted(Formatting.BOLD, Formatting.GOLD));
+        Map<String, Map<String, ConfigOption<?>>> sortedCategoryWidgets = new TreeMap<>(map);
+        sortedCategoryWidgets.forEach((categoryName, categoryOptions) -> {
+            ConfigCategoryWidget categoryWidget = new ConfigCategoryWidget(Text.translatable("category." + modId + "." + categoryName).formatted(Formatting.BOLD, Formatting.GOLD));
             addEntry(categoryWidget);
 
-            categoryOptions.forEach((key, option) -> {
-                AbstractConfigWidget widget = createWidget(option, modId);
-                addEntry(widget);
-            });
+            addWidgetsFromMap(new TreeMap<>(categoryOptions), modId);
         });
     }
 }

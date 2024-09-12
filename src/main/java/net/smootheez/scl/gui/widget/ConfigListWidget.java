@@ -14,11 +14,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ConfigListWidget extends ElementListWidget<ConfigListWidget.AbstractConfigWidget> {
-    public ConfigListWidget(MinecraftClient client) {
-        super(client, client.currentScreen != null ? client.currentScreen.width : 0, (client.currentScreen != null ? client.currentScreen.height : 0) - 64, 32, 25);
+    public ConfigListWidget() {
+        super(MinecraftClient.getInstance(), MinecraftClient.getInstance().currentScreen != null ? MinecraftClient.getInstance().currentScreen.width : 0, (MinecraftClient.getInstance().currentScreen != null ? MinecraftClient.getInstance().currentScreen.height : 0) - 64, 32, 25);
     }
 
-    public  <T> AbstractConfigWidget createWidget(ConfigOption<T> option, String modId) {
+    public <T> AbstractConfigWidget createWidget(ConfigOption<T> option, String modId) {
         List<OrderedText> orderedTexts = createOrderedTextList(option, modId);
         return option.getWidgetHandler().createWidget(option, orderedTexts, modId);
     }
@@ -35,28 +35,25 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
             builder.add(defaultValueText.asOrderedText());
             return builder.build();
         } else {
-            return ImmutableList.of(
-                    Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText(),
-                    defaultValueText.asOrderedText()
-            );
+            return ImmutableList.of(Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText(), defaultValueText.asOrderedText());
         }
     }
 
     @Override
-    protected int getScrollbarPositionX() {
-        return MinecraftClient.getInstance().getWindow().getWidth() / 2 - 11;
+    protected int getScrollbarX() {
+        return this.client.getWindow().getWidth() / 2 - 11;
     }
 
     @Override
     public int getRowWidth() {
-        return MinecraftClient.getInstance().getWindow().getWidth() / 2 - 20;
+        return this.client.getWindow().getWidth() / 2 - 20;
     }
 
     @Override
     public void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
         super.renderWidget(context, mouseX, mouseY, delta);
         AbstractConfigWidget abstractConfigWidget = this.getHoveredEntry();
-            if (abstractConfigWidget != null && abstractConfigWidget.description != null && this.client.currentScreen != null) {
+        if (abstractConfigWidget != null && abstractConfigWidget.description != null && this.client.currentScreen != null) {
             this.client.currentScreen.setTooltip(abstractConfigWidget.description);
         }
     }

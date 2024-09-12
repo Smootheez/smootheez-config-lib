@@ -12,12 +12,6 @@ public @interface Config {
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.FIELD)
-    @interface Comment {
-        String value();
-    }
-
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.FIELD)
     @interface Category {
         String value();
     }

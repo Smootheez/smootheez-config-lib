@@ -40,10 +40,8 @@ public class ConfigFileWriter {
     }
 
     private void initializeAdapters() {
-        System.out.println("Initializing adapters");
         for (Field field : configProvider.getClass().getDeclaredFields()) {
             if (field.getType() == ConfigOption.class) {
-                System.out.println("Found config option: " + field.getName());
                 field.setAccessible(true);
                 try {
                     ConfigOption<?> option = (ConfigOption<?>) field.get(configProvider);

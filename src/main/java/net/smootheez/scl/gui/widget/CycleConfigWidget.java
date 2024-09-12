@@ -1,6 +1,5 @@
 package net.smootheez.scl.gui.widget;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.CyclingButtonWidget;
 import net.minecraft.text.OrderedText;
@@ -13,10 +12,10 @@ import java.util.List;
 public class CycleConfigWidget <T extends Enum<T>> extends NamedConfigWidget {
     private final CyclingButtonWidget<T> cycleButton;
 
-    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option) {
+    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option, String modId) {
         super(name, description);
         T[] enumValues = option.getType().getEnumConstants();
-        cycleButton = CyclingButtonWidget.<T>builder(e -> Text.of(e.name()))
+        cycleButton = CyclingButtonWidget.<T>builder(e -> Text.translatable(option.getTranslationKey(modId) + e.name()))
                 .omitKeyText()
                 .values(enumValues)
                 .initially(option.getValue())

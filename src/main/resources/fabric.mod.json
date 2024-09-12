@@ -12,11 +12,13 @@
   "entrypoints": {
     "client": [
       "net.smootheez.scl.Scl"
+    ],
+    "modmenu" : [
+      "net.smootheez.scl.example.ModMenuImpl"
     ]
   },
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "fabric-api": "*",
-    "minecraft": ">=${minecraft_version}"
+    "minecraft": "~${minecraft_version}"
   }
 }
