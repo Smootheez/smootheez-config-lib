@@ -11,6 +11,7 @@ import net.minecraft.client.gui.widget.SimplePositioningWidget;
 import net.minecraft.client.gui.widget.TabNavigationWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
+import net.smootheez.scl.gui.widget.AutoConfigListWidget;
 import net.smootheez.scl.gui.widget.ConfigListWidget;
 import net.smootheez.scl.registry.ConfigRegister;
 
@@ -85,7 +86,7 @@ public class ExampleScreen extends Screen {
         public ConfigTabOne() {
             super(Text.of("Tab 1"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client, ExampleScreen.this));
+            adder.add(configList = new ConfigListWidget(ExampleScreen.this.client));
         }
 
     }
@@ -94,14 +95,17 @@ public class ExampleScreen extends Screen {
         public ConfigTabTwo() {
             super(Text.of("Tab 2"));
             GridWidget.Adder adder = this.grid.createAdder(1);
-            adder.add(configList1 = new ExampleListWidget(ExampleScreen.this.client, ExampleScreen.this));
+            adder.add(configList1 = new ExampleListWidget(ExampleScreen.this.client));
         }
     }
 
-    static class ConfigTabThree extends GridScreenTab {
+    class ConfigTabThree extends GridScreenTab {
 
         public ConfigTabThree() {
             super(Text.of("Tab 3"));
+
+            GridWidget.Adder adder = this.grid.createAdder(1);
+            adder.add(new AutoConfigListWidget(ExampleScreen.this.client, ExampleConfig.getInstance()));
         }
     }
 

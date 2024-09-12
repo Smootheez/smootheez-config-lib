@@ -1,12 +1,11 @@
 package net.smootheez.scl.example;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.smootheez.scl.gui.widget.ConfigListWidget;
 
 public class ExampleListWidget extends ConfigListWidget {
-    public ExampleListWidget(MinecraftClient client, Screen screen) {
-        super(client, screen);
+    public ExampleListWidget(MinecraftClient client) {
+        super(client);
 
         var configOption = ExampleConfig.getInstance();
 

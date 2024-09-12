@@ -3,7 +3,6 @@ package net.smootheez.scl.gui.widget;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ElementListWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.OrderedText;
@@ -16,15 +15,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ConfigListWidget extends ElementListWidget<ConfigListWidget.AbstractConfigWidget> {
-    private final Screen screen;
-    public ConfigListWidget(MinecraftClient client, Screen screen) {
-        super(client, screen.width, screen.height - 64, 32, 25);
-        this.screen = screen;
-
-        var configOption = ExampleConfig.getInstance();
-
-        addEntry(createWidget(configOption.getExampleBoolean()));
-        addEntry(createWidget(configOption.getExampleEnum()));
+    public ConfigListWidget(MinecraftClient client) {
+        super(client, client.currentScreen != null ? client.currentScreen.width : 0, (client.currentScreen != null ? client.currentScreen.height : 0) - 64, 32, 25);
     }
 
     public  <T> AbstractConfigWidget createWidget(ConfigOption<T> option) {
@@ -65,12 +57,12 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
     public void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
         super.renderWidget(context, mouseX, mouseY, delta);
         AbstractConfigWidget abstractConfigWidget = this.getHoveredEntry();
-            if (abstractConfigWidget != null && abstractConfigWidget.description != null) {
-            screen.setTooltip(abstractConfigWidget.description);
+            if (abstractConfigWidget != null && abstractConfigWidget.description != null && this.client.currentScreen != null) {
+            this.client.currentScreen.setTooltip(abstractConfigWidget.description);
         }
     }
 
-    public abstract static class AbstractConfigWidget extends ElementListWidget.Entry<AbstractConfigWidget> {
+    public abstract static class AbstractConfigWidget extends Entry<AbstractConfigWidget> {
         @Nullable
         final List<OrderedText> description;
 
