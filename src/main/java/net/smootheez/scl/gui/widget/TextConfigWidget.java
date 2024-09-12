@@ -49,7 +49,7 @@ public class TextConfigWidget extends NamedConfigWidget {
     @Override
     public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
         this.drawName(context, y, x);
-        this.textField.setX(x + entryWidth - 84);
+        this.textField.setX(x +  entryWidth - 84);
         this.textField.setY(y);
         this.textField.render(context, mouseX, mouseY, tickDelta);
     }

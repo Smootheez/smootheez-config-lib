@@ -8,7 +8,6 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.smootheez.scl.example.ExampleConfig;
 import net.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 

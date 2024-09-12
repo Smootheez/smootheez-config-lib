@@ -3,13 +3,14 @@ package net.smootheez.scl.gui.widget;
 import com.google.common.collect.Maps;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.smootheez.scl.annotation.Config;
 import net.smootheez.scl.api.ConfigProvider;
 import net.smootheez.scl.option.ConfigOption;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class AutoConfigListWidget extends ConfigListWidget {
     private final ConfigProvider provider;
@@ -35,7 +36,9 @@ public class AutoConfigListWidget extends ConfigListWidget {
                     ConfigOption<?> option = (ConfigOption<?>) field.get(provider);
                     Config.Category categoryAnnotation = field.getAnnotation(Config.Category.class);
                     if (categoryAnnotation != null) {
-                        String categoryName = categoryAnnotation.value();
+                        String category = categoryAnnotation.value();
+                        categoryWidgets.computeIfAbsent(category, k -> new HashMap<>())
+                                .put(option.getKey(), option);
                     } else {
                         uncategorizedWidgets.put(option.getKey(), option);
                     }
@@ -44,5 +47,26 @@ public class AutoConfigListWidget extends ConfigListWidget {
                 }
             }
         }
+        addWidgetsFromMap(uncategorizedWidgets);
+        addCategoryWidget(categoryWidgets);
+    }
+
+    private void addWidgetsFromMap(Map<String, ConfigOption<?>> map) {
+        map.forEach((key, option) -> {
+            AbstractConfigWidget widget = createWidget(option);
+            addEntry(widget);
+        });
+    }
+
+    private void addCategoryWidget(Map<String, Map<String, ConfigOption<?>>> map) {
+        map.forEach((categoryName, categoryOptions) -> {
+            ConfigCategoryWidget categoryWidget = new ConfigCategoryWidget(Text.translatable(categoryName).formatted(Formatting.BOLD, Formatting.GOLD));
+            addEntry(categoryWidget);
+
+            categoryOptions.forEach((key, option) -> {
+                AbstractConfigWidget widget = createWidget(option);
+                addEntry(widget);
+            });
+        });
     }
 }

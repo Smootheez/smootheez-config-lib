@@ -10,14 +10,16 @@ import net.smootheez.scl.option.ConfigOptionList;
 public class ExampleConfig implements ConfigProvider {
     private static final ExampleConfig INSTANCE = new ExampleConfig();
 
+    @Config.Category(ExampleCategory.CATEGORY_TWO)
+    private final ConfigOption<ExampleEnum> exampleEnum = ConfigOption.create("exampleEnum", ExampleEnum.ONE);
+
     @Config.Category(ExampleCategory.CATEGORY_ONE)
     private final ConfigOption<Boolean> exampleBoolean = ConfigOption.create("exampleBoolean",true);
 
+    @Config.Category(ExampleCategory.CATEGORY_ONE)
     private final ConfigOption<Boolean> exampleBoolean1 = ConfigOption.create("exampleBoolean1", true);
 
     private final ConfigOption<Boolean> exampleBoolean2 = ConfigOption.create("exampleBoolean2", false);
-    @Config.Category(ExampleCategory.CATEGORY_TWO)
-    private final ConfigOption<ExampleEnum> exampleEnum = ConfigOption.create("exampleEnum", ExampleEnum.ONE);
 
     @Config.Category(ExampleCategory.CATEGORY_THREE)
     private final ConfigOption<Integer> exampleInteger = ConfigOption.create("exampleInteger", 0, 100);
