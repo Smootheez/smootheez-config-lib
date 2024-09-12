@@ -26,7 +26,7 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
     private List<OrderedText> createOrderedTextList(ConfigOption<?> option) {
         String descriptionKey = option.getTranslationKey() + ".description";
         Text descriptionText = Text.translatable(descriptionKey);
-        Text defaultValueText = Text.translatable("options.default", Text.literal(option.getDefaultValue().toString())).formatted(Formatting.GRAY);
+        Text defaultValueText = Text.translatable("options.scl.default", Text.literal(option.getDefaultValue().toString())).formatted(Formatting.GRAY);
 
         if (I18n.hasTranslation(descriptionKey)) {
             ImmutableList.Builder<OrderedText> builder = ImmutableList.builder();

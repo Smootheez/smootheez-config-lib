@@ -9,5 +9,5 @@
   "options.exampleStringList.description": "Example String List Description",
   "options.exampleDouble": "Example Double",
   "options.exampleDouble.description": "Example Double Description",
-  "options.default": "Default: %s"
+  "options.scl.default": "Default: %s"
 }
