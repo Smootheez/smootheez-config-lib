@@ -1,13 +1,3 @@
 {
-  "options.exampleBoolean": "Example Boolean",
-  "options.exampleBoolean.description": "This is a very long text that will be wrapped across multiple lines. It can be used to display information to the player in a config screen. You can add multiple lines of text by separating them with commas.",
-  "options.exampleEnum": "Example Enum",
-  "options.exampleEnum.description": "Example Enum Description",
-  "options.exampleInteger": "Example Integer",
-  "options.exampleInteger.description": "Example Integer Description",
-  "options.exampleStringList": "Example String List",
-  "options.exampleStringList.description": "Example String List Description",
-  "options.exampleDouble": "Example Double",
-  "options.exampleDouble.description": "Example Double Description",
   "options.scl.default": "Default: %s"
 }
