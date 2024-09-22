@@ -1,4 +1,4 @@
-package net.smootheez.scl;
+package dev.smootheez.scl;
 
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;

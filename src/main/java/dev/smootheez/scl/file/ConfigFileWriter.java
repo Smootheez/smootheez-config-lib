@@ -1,13 +1,13 @@
-package net.smootheez.scl.file;
+package dev.smootheez.scl.file;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
-import net.smootheez.scl.annotation.Config;
-import net.smootheez.scl.api.ConfigProvider;
-import net.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.annotation.Config;
+import dev.smootheez.scl.api.ConfigProvider;
+import dev.smootheez.scl.option.ConfigOption;
 
 import java.io.File;
 import java.io.FileReader;

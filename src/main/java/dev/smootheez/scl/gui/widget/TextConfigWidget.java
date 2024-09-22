@@ -1,12 +1,12 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.smootheez.scl.option.ConfigOption;
-import net.smootheez.scl.option.ConfigOptionList;
+import dev.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.option.ConfigOptionList;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

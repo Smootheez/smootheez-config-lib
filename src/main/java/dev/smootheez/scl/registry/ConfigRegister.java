@@ -1,7 +1,7 @@
-package net.smootheez.scl.registry;
+package dev.smootheez.scl.registry;
 
-import net.smootheez.scl.api.ConfigProvider;
-import net.smootheez.scl.file.ConfigFileWriter;
+import dev.smootheez.scl.api.ConfigProvider;
+import dev.smootheez.scl.file.ConfigFileWriter;
 
 import java.util.HashMap;
 import java.util.Map;

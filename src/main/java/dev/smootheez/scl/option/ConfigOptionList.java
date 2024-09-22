@@ -1,4 +1,4 @@
-package net.smootheez.scl.option;
+package dev.smootheez.scl.option;
 
 import java.util.ArrayList;
 import java.util.List;

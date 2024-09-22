@@ -1,12 +1,11 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import com.google.common.collect.Maps;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.smootheez.scl.annotation.Config;
-import net.smootheez.scl.api.ConfigProvider;
-import net.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.annotation.Config;
+import dev.smootheez.scl.api.ConfigProvider;
+import dev.smootheez.scl.option.ConfigOption;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

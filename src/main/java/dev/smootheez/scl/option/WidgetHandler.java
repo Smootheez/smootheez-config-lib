@@ -1,8 +1,8 @@
-package net.smootheez.scl.option;
+package dev.smootheez.scl.option;
 
+import dev.smootheez.scl.gui.widget.*;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.smootheez.scl.gui.widget.*;
 
 import java.util.List;
 

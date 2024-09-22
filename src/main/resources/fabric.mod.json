@@ -11,7 +11,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.smootheez.scl.Scl"
+      "dev.smootheez.scl.Scl"
     ]
   },
   "depends": {

@@ -1,9 +1,9 @@
-package net.smootheez.scl.serializer;
+package dev.smootheez.scl.serializer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.smootheez.scl.option.ConfigOptionList;
+import dev.smootheez.scl.option.ConfigOptionList;
 
 import java.util.ArrayList;
 import java.util.List;

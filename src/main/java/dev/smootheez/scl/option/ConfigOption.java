@@ -1,6 +1,6 @@
-package net.smootheez.scl.option;
+package dev.smootheez.scl.option;
 
-import net.smootheez.scl.serializer.ConfigSerializer;
+import dev.smootheez.scl.serializer.ConfigSerializer;
 import java.util.Arrays;
 
 public class ConfigOption<T> {

@@ -1,4 +1,4 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.MinecraftClient;
@@ -8,7 +8,7 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

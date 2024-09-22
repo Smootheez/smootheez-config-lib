@@ -1,4 +1,4 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import com.google.common.collect.Lists;
 import net.minecraft.client.MinecraftClient;

@@ -1,4 +1,4 @@
-package net.smootheez.scl.api;
+package dev.smootheez.scl.api;
 
 public interface ConfigProvider {
 }

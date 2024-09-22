@@ -1,28 +1,29 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DoubleConfigTextWidget extends NamedConfigWidget {
+public class IntConfigTextWidget extends NamedConfigWidget {
     private final TextFieldWidget textField;
-    public DoubleConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Double> option) {
+
+    public IntConfigTextWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<Integer> option) {
         super(name, description);
         final MinecraftClient client = MinecraftClient.getInstance();
         textField = new TextFieldWidget(client.textRenderer, 10, 5, 74, 20, name);
-        textField.setText(Double.toString(option.getValue()));
+        textField.setText(Integer.toString(option.getValue()));
         textField.setChangedListener(value -> {
-            if (option.validateDoubleValue(value)
-                    && Double.parseDouble(value) <= option.getMinValue()
-                    && Double.parseDouble(value) <= option.getMaxValue()) {
+            if (option.validateIntValue(value)
+                    && Integer.parseInt(value) <= option.getMinValue()
+                    && Integer.parseInt(value) <= option.getMaxValue()) {
                 textField.setEditableColor(14737632);
-                option.setValue(Double.valueOf(value));
+                option.setValue(Integer.valueOf(value));
             } else {
                 textField.setEditableColor(16711680);
             }

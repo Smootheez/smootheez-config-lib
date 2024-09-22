@@ -1,4 +1,4 @@
-package net.smootheez.scl.gui.widget;
+package dev.smootheez.scl.gui.widget;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
@@ -6,7 +6,7 @@ import net.minecraft.client.gui.Selectable;
 import net.minecraft.client.gui.widget.CyclingButtonWidget;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.smootheez.scl.option.ConfigOption;
+import dev.smootheez.scl.option.ConfigOption;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
