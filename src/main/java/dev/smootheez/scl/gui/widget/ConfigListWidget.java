@@ -41,12 +41,12 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
 
     @Override
     protected int getScrollbarPositionX() {
-        return this.client.getWindow().getWidth() / 2 - 11;
+        return super.getScrollbarPositionX() + 76;
     }
 
     @Override
     public int getRowWidth() {
-        return this.client.getWindow().getWidth() / 2 - 20;
+        return 400;
     }
 
     @Override
