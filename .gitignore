@@ -43,3 +43,4 @@ bin/
 /run/
 /.idea/uiDesigner.xml
 /.idea/
+/local.properties

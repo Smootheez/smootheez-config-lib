@@ -1,6 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
+    id 'com.modrinth.minotaur' version '2.+'
 }
 
 group = project.maven_group
@@ -45,6 +46,8 @@ java {
     withSourcesJar()
 }
 
+
+
 publishing {
     publications {
         mod(MavenPublication) {
@@ -56,9 +59,26 @@ publishing {
         }
     }
 
+    def localProperties = new Properties()
+    def localPropertiesFile = rootProject.file('local.properties')
+    if (localPropertiesFile.exists()) {
+        localProperties.load(new FileInputStream(localPropertiesFile))
+    }
+
     repositories {
         maven {
-            url 'file://D:/Documents/Minecraft Java Mod Dev/my-local-repository'
+            url localProperties.getProperty('localRepositoryUrl', '')
         }
     }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "zLVNfWvA"
+    versionNumber = project.mod_version
+    versionName = "${project.mod_name}-${project.mod_version}"
+    versionType = "release"
+    uploadFile = remapJar
+    gameVersions = ["1.20.4"]
+    loaders = ["fabric"]
 }
