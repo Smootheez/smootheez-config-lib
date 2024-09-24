@@ -40,8 +40,8 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
     }
 
     @Override
-    protected int getScrollbarPositionX() {
-        return super.getScrollbarPositionX() + 76;
+    protected int getScrollbarX() {
+        return super.getScrollbarX();
     }
 
     @Override
