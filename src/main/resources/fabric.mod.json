@@ -8,6 +8,7 @@
     "Smootheez"
   ],
   "license": "${mod_license}",
+  "icon": "assets/scl/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [

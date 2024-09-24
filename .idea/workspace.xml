@@ -7,16 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="0.0.8">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ExampleScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/example/ModMenuImpl.java" afterDir="false" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Fix gui bug">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/scl/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/Scl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +59,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev-1.20.4" />
+        <entry key="$PROJECT_DIR$" value="dev-1.20.5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,12 +70,12 @@
     &quot;assignee&quot;: &quot;Smootheez&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Smootheez/smootheez-config-lib.git&quot;,
-    &quot;accountId&quot;: &quot;4f15765d-8977-4f0e-80a6-97879ed98add&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Smootheez/smootheez-config-lib.git",
+    "accountId": "b87af764-ce37-4704-9557-46e299ca7886"
   }
-}</component>
+}]]></component>
   <component name="GradleLocalSettings">
     <option name="myGradleUserHome" value="$USER_HOME$/.gradle" />
   </component>
@@ -100,7 +94,7 @@
     "Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "dev-1.20.5",
+    "git-widget-placeholder": "1.20.4",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/smoot/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-merged/1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2/minecraft-merged-1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2-sources.jar",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -270,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726182237439</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix gui bug">
+      <option name="closed" value="true" />
+      <created>1727076463233</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1727076463233</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,6 +297,7 @@
     <MESSAGE value="0.0.7-a" />
     <MESSAGE value="0.0.7-b" />
     <MESSAGE value="0.0.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.8" />
+    <MESSAGE value="Fix gui bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix gui bug" />
   </component>
 </project>
