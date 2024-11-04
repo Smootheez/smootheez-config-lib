@@ -113,7 +113,7 @@ public class ConfigOption<T> {
 
     public static ConfigOption<Double> create(String key, Double defaultValue, Double minValue, Double maxValue) {
         return new ConfigOption<>(key,
-                defaultValue, Double.class, new ConfigSerializer.FloatSerializer(), new WidgetHandler.DoubleWidgetHandler(), minValue, maxValue);
+                defaultValue, Double.class, new ConfigSerializer.DoubleSerializer(), new WidgetHandler.DoubleWidgetHandler(), minValue, maxValue);
     }
 
     public static <E extends Enum<E>> ConfigOption<E> create(String key, E defaultValue) {
