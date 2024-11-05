@@ -19,7 +19,7 @@ public abstract class NamedConfigWidget extends ConfigListWidget.AbstractConfigW
 
     public NamedConfigWidget(Text name, @Nullable List<OrderedText> description) {
         super(description);
-        this.name = this.client.textRenderer.wrapLines(name, 350);
+        this.name = this.client.textRenderer.wrapLines(name, 300);
     }
 
     @Override
@@ -34,7 +34,7 @@ public abstract class NamedConfigWidget extends ConfigListWidget.AbstractConfigW
 
     protected void drawName(DrawContext context, int x, int y) {
         if (this.name.size() == 1) {
-            context.drawText(this.client.textRenderer, this.name.get(0), y, x + 5, 16777215, false);
+            context.drawText(this.client.textRenderer, this.name.getFirst(), y, x + 5, 16777215, false);
         } else if (this.name.size() >= 2) {
             context.drawText(this.client.textRenderer, this.name.get(0), y, x, 16777215, false);
             context.drawText(this.client.textRenderer, this.name.get(1), y, x + 10, 16777215, false);
