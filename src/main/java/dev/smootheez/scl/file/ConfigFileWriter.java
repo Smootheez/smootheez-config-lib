@@ -25,7 +25,7 @@ public class ConfigFileWriter {
 
     public ConfigFileWriter(ConfigProvider configProvider) {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
-        this.configProvider = configProvider;
+        this.configProvider = Objects.requireNonNull(configProvider, "ConfigProvider cannot be null");
         this.categoryAdapters = new TreeMap<>();
         this.uncategorizedAdapters = new TreeMap<>();
 
@@ -40,23 +40,32 @@ public class ConfigFileWriter {
     }
 
     private void initializeAdapters() {
+        Set<String> usedKeys = new HashSet<>();
+
         for (Field field : configProvider.getClass().getDeclaredFields()) {
             if (field.getType() == ConfigOption.class) {
                 field.setAccessible(true);
                 try {
                     ConfigOption<?> option = (ConfigOption<?>) field.get(configProvider);
+                    String key = option.getKey();
+
+                    if (usedKeys.contains(key)) {
+                        throw new IllegalStateException("Duplicate key found: " + key);
+                    }
+                    usedKeys.add(key);
+
                     Config.Category categoryAnnotation = field.getAnnotation(Config.Category.class);
 
                     if (categoryAnnotation != null) {
                         String category = categoryAnnotation.value();
                         categoryAdapters
                                 .computeIfAbsent(category, k -> new TreeMap<>())
-                                .put(option.getKey(), createAdapter(option));
+                                .put(key, createAdapter(option));
                     } else {
-                        uncategorizedAdapters.put(option.getKey(), createAdapter(option));
+                        uncategorizedAdapters.put(key, createAdapter(option));
                     }
                 } catch (IllegalAccessException e) {
-                    throw new RuntimeException(e);
+                    throw new RuntimeException("Error accessing field", e);
                 }
             }
         }
@@ -72,72 +81,53 @@ public class ConfigFileWriter {
             return;
         }
 
-        try (FileReader reader = new FileReader(configFile)) {
+        try (var reader = new FileReader(configFile)) {
             JsonObject json = gson.fromJson(reader, JsonObject.class);
             fromJson(json);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error loading config", e);
         }
     }
 
     public void saveConfig() {
-        try (FileWriter writer = new FileWriter(configFile)) {
+        try (var writer = new FileWriter(configFile)) {
             JsonObject json = toJson();
             gson.toJson(json, writer);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error saving config", e);
         }
     }
 
     private void fromJson(JsonObject json) {
-        for (Map.Entry<String, ConfigOptionAdapter<?>> entry : uncategorizedAdapters.entrySet()) {
-            String key = entry.getKey();
-            ConfigOptionAdapter<?> adapter = entry.getValue();
+        uncategorizedAdapters.forEach((key, adapter) -> {
             if (json.has(key)) {
-                JsonElement element = json.get(key);
-                adapter.fromJson(element);
+                adapter.fromJson(json.get(key));
             }
-        }
+        });
 
-        for (Map.Entry<String, JsonElement> categoryEntry : json.entrySet()) {
+        json.entrySet().forEach(categoryEntry -> {
             String category = categoryEntry.getKey();
             if (categoryAdapters.containsKey(category)) {
                 JsonObject categoryObject = categoryEntry.getValue().getAsJsonObject();
-                Map<String, ConfigOptionAdapter<?>> adapters = categoryAdapters.get(category);
-                for (Map.Entry<String, ConfigOptionAdapter<?>> entry : adapters.entrySet()) {
-                    String key = entry.getKey();
-                    ConfigOptionAdapter<?> adapter = entry.getValue();
+                categoryAdapters.get(category).forEach((key, adapter) -> {
                     if (categoryObject.has(key)) {
-                        JsonElement element = categoryObject.get(key);
-                        adapter.fromJson(element);
+                        adapter.fromJson(categoryObject.get(key));
                     }
-                }
+                });
             }
-        }
+        });
     }
 
     private JsonObject toJson() {
         JsonObject json = new JsonObject();
 
-        for (Map.Entry<String, ConfigOptionAdapter<?>> entry : uncategorizedAdapters.entrySet()) {
-            String key = entry.getKey();
-            ConfigOptionAdapter<?> adapter = entry.getValue();
-            json.add(key, adapter.toJson());
-        }
+        uncategorizedAdapters.forEach((key, adapter) -> json.add(key, adapter.toJson()));
 
-        for (Map.Entry<String, Map<String, ConfigOptionAdapter<?>>> categoryEntry : categoryAdapters.entrySet()) {
-            String category = categoryEntry.getKey();
+        categoryAdapters.forEach((category, adapters) -> {
             JsonObject categoryObject = new JsonObject();
-            Map<String, ConfigOptionAdapter<?>> adapters = categoryEntry.getValue();
-
-            for (Map.Entry<String, ConfigOptionAdapter<?>> entry : adapters.entrySet()) {
-                String key = entry.getKey();
-                ConfigOptionAdapter<?> adapter = entry.getValue();
-                categoryObject.add(key, adapter.toJson());
-            }
-
+            adapters.forEach((key, adapter) -> categoryObject.add(key, adapter.toJson()));
             json.add(category, categoryObject);
-        }
+        });
 
         return json;
     }

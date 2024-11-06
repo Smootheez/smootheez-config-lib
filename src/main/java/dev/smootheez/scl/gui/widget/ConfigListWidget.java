@@ -26,16 +26,14 @@ public class ConfigListWidget extends ElementListWidget<ConfigListWidget.Abstrac
     private List<OrderedText> createOrderedTextList(ConfigOption<?> option, String modId) {
         String descriptionKey = option.getTranslationKey(modId) + ".description";
         Text descriptionText = Text.translatable(descriptionKey);
-        Text defaultValueText = Text.translatable("options.scl.default", Text.literal(option.getDefaultValue().toString())).formatted(Formatting.GRAY);
 
         if (I18n.hasTranslation(descriptionKey)) {
             ImmutableList.Builder<OrderedText> builder = ImmutableList.builder();
             builder.add(Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText());
             this.client.textRenderer.wrapLines(descriptionText, 200).forEach(builder::add);
-            builder.add(defaultValueText.asOrderedText());
             return builder.build();
         } else {
-            return ImmutableList.of(Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText(), defaultValueText.asOrderedText());
+            return ImmutableList.of(Text.literal(option.getKey()).formatted(Formatting.YELLOW).asOrderedText());
         }
     }
 

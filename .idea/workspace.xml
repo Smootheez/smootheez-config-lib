@@ -7,20 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Renamed typo class">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" afterDir="false" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Add reset button and update the plugin to 1.8">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/screen/AutoScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Scl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/BooleanConfigWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/BooleanConfigWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/CycleConfigWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/CycleConfigWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/DoubleConfigTextWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/DoubleConfigTextWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/IntConfigTextWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/IntConfigTextWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/NamedConfigWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/NamedConfigWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/TextConfigWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/TextConfigWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/AutoConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/AutoConfigListWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/scl/lang/en_us.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,21 +92,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;1.21.x&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/smoot/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-merged/1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2/minecraft-merged-1.20.5-net.fabricmc.yarn.1_20_5.1.20.5+build.1-v2-sources.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.smootheez-config-lib [:net.fabricmc.devlaunchinjector.Main.main()].executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "1.21.x",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Minecraft Mod Development/fabric/project/smootheez-config-lib/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_21_build_9_v2/com/terraformersmc/modmenu/11.0.3/modmenu-11.0.3-sources.jar",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="net.smootheez.scl.gui.widget" />
@@ -316,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730684630836</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add reset button and update the plugin to 1.8">
+      <option name="closed" value="true" />
+      <created>1730821952137</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730821952137</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,6 +348,7 @@
     <MESSAGE value="Port to 1.20.5" />
     <MESSAGE value="Port to 1.21" />
     <MESSAGE value="Renamed typo class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed typo class" />
+    <MESSAGE value="Add reset button and update the plugin to 1.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reset button and update the plugin to 1.8" />
   </component>
 </project>
