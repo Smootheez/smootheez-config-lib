@@ -13,6 +13,7 @@ public class ConfigOption<T> {
     protected final Class<T> type;
     protected final ConfigSerializer<T> serializer;
     protected final WidgetHandler<T> widgetHandler;
+    protected String translation;
 
     public ConfigOption(String key, T defaultValue, Class<T> type, ConfigSerializer<T> serializer, WidgetHandler<T> widgetHandler) {
         this.key = key;
@@ -38,8 +39,13 @@ public class ConfigOption<T> {
         return key;
     }
 
-    public String getTranslationKey(String modId) {
-        return "options." + modId + "." + key;
+    public String setTranslation(String modId) {
+        this.translation = "options." + modId+ "." + key;
+        return translation;
+    }
+
+    public String getTranslation() {
+        return translation;
     }
 
     public T getMaxValue() {

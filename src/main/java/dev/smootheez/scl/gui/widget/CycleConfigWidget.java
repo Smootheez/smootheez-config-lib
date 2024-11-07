@@ -17,12 +17,12 @@ public class CycleConfigWidget<T extends Enum<T>> extends NamedConfigWidget {
     private final ButtonWidget resetButton;
     private final ConfigOption<T> option;
 
-    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option, String modId) {
+    public CycleConfigWidget(Text name, @Nullable List<OrderedText> description, ConfigOption<T> option) {
         super(name, description);
         this.option = option;
         T[] enumValues = option.getType().getEnumConstants();
 
-        cycleButton = CyclingButtonWidget.<T>builder(e -> Text.translatable(option.getTranslationKey(modId) + "." + toCamelCase(e.name())))
+        cycleButton = CyclingButtonWidget.<T>builder(e -> Text.translatable(option.getTranslation() + "." + toCamelCase(e.name())))
                 .omitKeyText()
                 .values(enumValues)
                 .initially(option.getValue())

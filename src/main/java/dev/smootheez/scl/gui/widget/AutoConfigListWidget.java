@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class AutoConfigListWidget extends ConfigListWidget {
     private final ConfigProvider provider;
@@ -38,6 +39,40 @@ public class AutoConfigListWidget extends ConfigListWidget {
         return this;
     }
 
+    public void search(String searchTerm) {
+        clearEntries();
+
+        addWidgetsFromMap(filterOptions(uncategorizedWidgets, searchTerm));
+
+        Map<String, Map<String, ConfigOption<?>>> filteredCategoryWidgets = new HashMap<>();
+        categoryWidgets.forEach((category, options) -> {
+            Map<String, ConfigOption<?>> filteredOptions = filterOptions(options, searchTerm);
+            if (!filteredOptions.isEmpty()) {
+                filteredCategoryWidgets.put(category, filteredOptions);
+            }
+        });
+        addCategoryWidget(filteredCategoryWidgets);
+    }
+
+    private Map<String, ConfigOption<?>> filterOptions(Map<String, ConfigOption<?>> options, String searchTerm) {
+        if (searchTerm.isEmpty()) {
+            return options;
+        }
+        return options.entrySet().stream()
+                .filter(entry -> matchesSearchTerm(entry.getValue(), searchTerm))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    private boolean matchesSearchTerm(ConfigOption<?> option, String searchTerm) {
+        String lowercaseSearchTerm = searchTerm.toLowerCase();
+        return option.getKey().toLowerCase().contains(lowercaseSearchTerm);
+    }
+
+    public void resetView() {
+        clearEntries();
+        autoConfigEntries();
+    }
+
     private void autoConfigEntries() {
         for (Field field : provider.getClass().getDeclaredFields()) {
             if (field.getType() == ConfigOption.class) {
@@ -56,11 +91,11 @@ public class AutoConfigListWidget extends ConfigListWidget {
                 }
             }
         }
-        addWidgetsFromMap(sorted ? new TreeMap<>(uncategorizedWidgets) : uncategorizedWidgets, modId);
+        addWidgetsFromMap(sorted ? new TreeMap<>(uncategorizedWidgets) : uncategorizedWidgets);
         addCategoryWidget(categoryWidgets);
     }
 
-    private void addWidgetsFromMap(Map<String, ConfigOption<?>> map, String modId) {
+    private void addWidgetsFromMap(Map<String, ConfigOption<?>> map) {
         map.forEach((key, option) -> {
             var widget = createWidget(option, modId);
             addEntry(widget);
@@ -70,10 +105,10 @@ public class AutoConfigListWidget extends ConfigListWidget {
     private void addCategoryWidget(Map<String, Map<String, ConfigOption<?>>> map) {
         var sortedCategoryWidgets = new TreeMap<>(map);
         sortedCategoryWidgets.forEach((categoryName, categoryOptions) -> {
-            var categoryWidget = new ConfigCategoryWidget(Text.translatable("category.%s.%s", modId, categoryName)
+            var categoryWidget = new ConfigCategoryWidget(Text.translatable("category." + modId + "." + categoryName)
                     .formatted(Formatting.BOLD, Formatting.GOLD));
             addEntry(categoryWidget);
-            addWidgetsFromMap(sorted ? new TreeMap<>(categoryOptions) : categoryOptions, modId);
+            addWidgetsFromMap(sorted ? new TreeMap<>(categoryOptions) : categoryOptions);
         });
     }
 }

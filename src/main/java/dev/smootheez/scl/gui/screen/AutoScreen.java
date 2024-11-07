@@ -14,6 +14,7 @@ public class AutoScreen extends Screen {
     private final Screen parent;
     private final ConfigProvider provider;
     private TextFieldWidget searchBox;
+    private AutoConfigListWidget configList;
 
     public AutoScreen(Text title, Screen parent, ConfigProvider provider) {
         super(title);
@@ -35,24 +36,30 @@ public class AutoScreen extends Screen {
         searchBox.setChangedListener(this::onSearchChanged);
         addDrawableChild(searchBox);
 
-        addDrawableChild(new AutoConfigListWidget(provider).sorted().build());
+        configList = new AutoConfigListWidget(provider).sorted().build();
+        addDrawableChild(configList);
 
         addDrawableChild(ButtonWidget.builder(ScreenTexts.CANCEL, button -> close())
                 .dimensions(this.width / 2 + 5, this.height - 27, 150, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> close())
-                .dimensions(this.width / 2 - 155, this.height - 27, 150, 20)
-                .build());
+        addDrawableChild(ButtonWidget.builder(ScreenTexts.DONE, button -> {
+            close();
+            ConfigRegister.getInstance().save(provider.getClass());
+        }).dimensions(this.width / 2 - 155, this.height - 27, 150, 20).build());
     }
 
     private void onSearchChanged(String searchTerm) {
+        if (searchTerm.isEmpty()) {
+            configList.resetView();
+        } else {
+            configList.search(searchTerm);
+        }
     }
 
     @Override
     public void close() {
         if (this.client != null) {
             this.client.setScreen(parent);
-            ConfigRegister.getInstance().save(provider.getClass());
         }
     }
 

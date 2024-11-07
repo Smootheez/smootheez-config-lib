@@ -7,15 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Add reset button and update the plugin to 1.8">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/screen/AutoScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Scl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/Scl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/AutoConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/AutoConfigListWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/ConfigListWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/smootheez/scl/gui/widget/ConfigListWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/scl/lang/en_us.json" beforeDir="false" />
-    </list>
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Experiment search bar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +91,7 @@
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "1.21.x",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Minecraft Mod Development/fabric/project/smootheez-config-lib/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_21_build_9_v2/com/terraformersmc/modmenu/11.0.3/modmenu-11.0.3-sources.jar",
+    "last_opened_file_path": "E:/Minecraft Mod Development/fabric/project/smootheez-config-lib/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-c2b31d572c/1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2/minecraft-merged-c2b31d572c-1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2-sources.jar",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -318,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730821952137</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Experiment search bar">
+      <option name="closed" value="true" />
+      <created>1730900232526</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1730900232526</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,6 +349,7 @@
     <MESSAGE value="Port to 1.21" />
     <MESSAGE value="Renamed typo class" />
     <MESSAGE value="Add reset button and update the plugin to 1.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add reset button and update the plugin to 1.8" />
+    <MESSAGE value="Experiment search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Experiment search bar" />
   </component>
 </project>
