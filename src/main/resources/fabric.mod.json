@@ -13,9 +13,6 @@
   "entrypoints": {
     "client": [
       "dev.smootheez.scl.Scl"
-    ],
-    "modmenu" : [
-      "dev.smootheez.scl.test.ModMenuImpl"
     ]
   },
   "depends": {
