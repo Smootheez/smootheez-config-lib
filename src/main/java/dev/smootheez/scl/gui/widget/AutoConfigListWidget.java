@@ -65,7 +65,11 @@ public class AutoConfigListWidget extends ConfigListWidget {
 
     private boolean matchesSearchTerm(ConfigOption<?> option, String searchTerm) {
         String lowercaseSearchTerm = searchTerm.toLowerCase();
-        return option.getKey().toLowerCase().contains(lowercaseSearchTerm);
+
+        String translation = option.getTranslation();
+        String translatedText = Text.translatable(translation).getString();
+
+        return translatedText.toLowerCase().contains(lowercaseSearchTerm) || option.getKey().toLowerCase().contains(lowercaseSearchTerm);
     }
 
     public void resetView() {
