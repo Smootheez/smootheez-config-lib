@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Support search based on translation" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Clean up the code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -334,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730956531938</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Clean up the code">
+      <option name="closed" value="true" />
+      <created>1730981701698</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1730981701698</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -368,6 +376,7 @@
     <MESSAGE value="Experiment search bar" />
     <MESSAGE value="Add function to search bar" />
     <MESSAGE value="Support search based on translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Support search based on translation" />
+    <MESSAGE value="Clean up the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up the code" />
   </component>
 </project>

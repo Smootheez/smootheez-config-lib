@@ -9,14 +9,15 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
+import org.lwjgl.glfw.GLFW;
 
-public class AutoScreen extends Screen {
+public class AutoConfigScreen extends Screen {
     private final Screen parent;
     private final ConfigProvider provider;
     private TextFieldWidget searchBox;
     private AutoConfigListWidget configList;
 
-    public AutoScreen(Text title, Screen parent, ConfigProvider provider) {
+    public AutoConfigScreen(Text title, Screen parent, ConfigProvider provider) {
         super(title);
         this.parent = parent;
         this.provider = provider;
@@ -58,30 +59,32 @@ public class AutoScreen extends Screen {
 
     @Override
     public void close() {
-        if (this.client != null) {
-            this.client.setScreen(parent);
-        }
+        if (this.client != null) this.client.setScreen(parent);
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-        context.drawText(this.textRenderer, this.title, 12, 12, 0xffffff, false);
+        int titleX = searchBox.getX() - 226;
+        context.drawText(this.textRenderer, this.title, titleX, 12, 0xffffff, false);
     }
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (searchBox.isFocused()) {
-            return searchBox.keyPressed(keyCode, scanCode, modifiers);
+        if (keyCode == GLFW.GLFW_KEY_ESCAPE && searchBox.isFocused()) {
+            searchBox.setFocused(false);
+            return true;
         }
+
+        if (searchBox.isFocused()) return searchBox.keyPressed(keyCode, scanCode, modifiers);
+
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     @Override
     public boolean charTyped(char chr, int modifiers) {
-        if (searchBox.isFocused()) {
-            return searchBox.charTyped(chr, modifiers);
-        }
+        if (searchBox.isFocused()) return searchBox.charTyped(chr, modifiers);
+
         return super.charTyped(chr, modifiers);
     }
 }
