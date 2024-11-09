@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Clean up the code" />
+    <list default="true" id="1cb12173-4998-4041-b957-ed87eba56a1b" name="Changes" comment="Try to fixing layout">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +94,7 @@
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;1.21.x&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Minecraft Mod Development/fabric/project/smootheez-config-lib/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-c2b31d572c/1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2/minecraft-merged-c2b31d572c-1.21-net.fabricmc.yarn.1_21.1.21+build.9-v2-sources.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Minecraft Mod Development/fabric/project/smootheez-config-lib/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_21_build_9_v2/com/terraformersmc/modmenu/11.0.3/modmenu-11.0.3-sources.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -342,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730981701698</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Try to fixing layout">
+      <option name="closed" value="true" />
+      <created>1731132275867</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1731132275867</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,6 +388,7 @@
     <MESSAGE value="Add function to search bar" />
     <MESSAGE value="Support search based on translation" />
     <MESSAGE value="Clean up the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up the code" />
+    <MESSAGE value="Try to fixing layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try to fixing layout" />
   </component>
 </project>
